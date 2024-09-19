@@ -1,0 +1,60 @@
+title: General Strike
+subtitle: The KPD is mobilizing...
+view-if: (spd_in_government = 1 and unions_independent = 1 and kpd_relation < 5 and blutmai = 1 and year >= 1933 and and workers_kpd >= 40) or (year >= 1933 and sapd_formed = 1 and kpd_relation < 5 and workers_kpd >= 40;)
+new-page: true
+max-visits: 1
+on-arrival: general_strike_seen = 1; rfb_strength += 20
+go-to: should_resign if spd_in_government and president != "Braun"; gov_menu if president = "Braun"; non_gov_menu if spd_in_government = 0 and president != "Braun"
+tags: event
+
+= General Strike
+
+The KPD have mobilized several trade unions and angry workers within Germany to call a general strike demanding the resignation of our government as well as calls for 'Class against class'. The strategies the strikers are using seem extremely similar to the ones used during the Bolshevik and Spartacist revolutions. No one knows what is going on but the future is uncertain as of now...
+
+[? if president != "Hindenburg" : President Hindenburg has already deployed police in several parts of the country with orders to shoot on sight. Rather than scare the strikers, these orders only seem to anger the Communists. Unless the SPD intervenes, a violent bloodbath may ensue, one that very well may send Germany into civil war. ?] [? if president != "Braun" : President Braun is being pressurized by the center and liberal parties to open fire on the strikers before they can do anything. To complicate matters, rumors are spreading that industrialists have hired far-right paramilitaries to engage in strike busting operations. One wrong move is all that will be needed to send Germany into a civil war. ?]
+
+@non_gov_menu
+
+Chancellor [+ chancellor +] agrees with President [+ president +]'s dangerous rhetoric and is unfazed by the crowd gathered outside.
+
+- @fight
+- @negotiate
+
+@fight
+on-arrival: title: We shall fight a three-way war if it means that democracy survives for one more day!
+on-arrival: triple_strength = rb_strength*rb_militancy*(1-dissent/2); defense_strength += prussian_police_strength*prussian_police_militancy*prussian_police_loyalty if spd_prussia; rival_strength = sa_strength*sa_militancy + sh_strength*sh_militancy + rfb_strength*rfb_militancy; true_strength += workers_spd_normalized*(2 - dissent)*(2 - unemployed/100); true_strength += reichswehr_strength*reichswehr_loyalty*reichswehr_militancy if president=="Braun" and spd_in_government
+go-to: tripartite_win if triple_strength >= rival_strength; tripartite_pre_civil_war if triple_strength < rival_strength
+
+The [+ rb_strength +] thousand-strong Reichsbanner have been deployed; many are in Berlin, preparing for the inevitable tripartite st
+
+ruggle.
+
+[? if spd_prussia: The Prussian police has been deployed. ?] [? if spd_in_government and president == "Braun" : The portions of the Reichswehr that are loyal are also deployed. ?]
+
+@tripartite_win
+on-arrival: coup_progress = 0; sa_strength *= 0.6; sh_strength *= 0.6; workers_nsdap -= 12*(1-dissent); unemployed_nsdap -= 7*(1-dissent); new_middle_nsdap -= 4*(1-dissent); workers_kpd -= 8*(1-dissent); unemployed_kpd -= 6*(1-dissent);workers_spd += 8*(1-dissent); unemployed_spd += 6*(1-dissent); pro_republic += 20
+
+Our forces engage in a three-way battle with the reactionaries and communists. Against all odds, they have emerged victorious! They were overwhelmed by our display of strength, and have chosen to retreat. The general strike is over, and Germany won't become a communist country any time soon.
+
+The show of force has reinvigorated support for the republic and particularly for the SPD, and has weakened the enemies of democracy.
+
+@tripartite_pre_civil_war
+
+Our forces try to fend off against the combined might of the reactionaries and communists on the streets of Berlin, and armed fighting erupts. No side is dislodged from their positions.
+
+- @civil_war: It is a civil war.
+
+@negotiate
+title: Communicate with the strikers to negotiate an end to the general strike
+
+We have begun negotiations with the striking unions and the KPD through unreliable backchannels. The communists are demanding massive reforms overnight to even consider the possibility of ending the strike.
+
+- @new_elections
+- @council_negotiations
+- @more_welfare
+- @fight
+
+@council_negotiations
+title: Our sectorial works councils could help address the strikers' grievances
+choose-if: works_councils = 3
+
