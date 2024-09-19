@@ -14,6 +14,7 @@ The Nazi SA has disrupted our rally! Their street troops are preventing us from 
 - @police_protect: Call the police to protect our rally.
 - @rb_protect: Use the Reichsbanner to protect our rally.
 - @cancel: Cancel the rally.
+- @united_defense: Could the RFB-Reichsbanner combine protect our rally?
 
 @police_protect
 view-if: spd_prussia == 1
@@ -49,6 +50,23 @@ on-arrival: workers_nsdap += 3;
 
 The SA have won this show of strength.
 
+@united_defense
+subtitle: If this succeeds, we will officially bury the hatchet with the Communists...
+view-if: kpd_truce = 1; kpd_relation >= 55
+on-arrival: rfb_rb_success = rb_strength*rb_militancy + rfb_strength*rfb_militancy - sa_strength*sa_militancy;
+go-to: rfb_rb_protect_win if rfb_rb_success >= 0; rfb_rb_protect_lose if rfb_rb_success < 0
+
+@rfb_rb_protect_win
+go-to: main_rally
+on-arrival: kpd_relation += 5; left_strength += 3; left_dissent -= 8; reformist_dissent -= 5; center_dissent -= 5
+
+The united defense repelled the SA! Our meeting can go head as usual. However, our more right-leaning members will not approve of the events that occurred today.
+
+@rfb_rb_protect_lose
+on-arrival: workers_nsdap += 3; kpd_relation -= 2; left_dissent -= 2; reformist_dissent += 8; center_dissent += 7
+
+Despite the resistance put forth by the united defense, the SA have won this show of strength. Both sides are accussing each other of sabotage and our more right-leaning membership is furious.
+
 @main_rally
 
 Mass rallies are a common feature of social democratic life, especially in the lead-up to an election. What is the primary theme of this rally?
@@ -82,7 +100,7 @@ Our speakers defend the republican system and rail against the monarchists and a
 @pacifism
 on-arrival: pacifism += 1; nationalism -= 2*(1 - dissent); workers_spd += 4*(1 - dissent) if pacifism >= 3; unemployed_spd += 3*(1-dissent) if pacifism >= 3; nationalism -= 3*(1-dissent) if pacifism >= 3; new_middle_spd += 4*(1-dissent) if pacifism >= 3
 
-Our speakers denounce the military establishment and all the spending entering that black hole. Some adventurous speakers question the responsibility of the military elites in organizing the Great War.
+Our speakers denounce the military establishment and all the spending entering that black hole. Some adventurous speakers question the responsibility of the military elites in organizing the Great War. [? if eu = 1 Others declare the recent formation of the European Union as a political masterstroke by the SPD.?]
 
 [? if pacifism < 3 : Given the volume of nationalist indoctrination in our society, it is difficult to argue so vehemently against the military. ?]
 [? if pacifism >= 3 : Since we have consistently made pacifism a theme of our campaign, the workers are enthusiastic about our message. ?]
