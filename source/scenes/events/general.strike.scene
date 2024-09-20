@@ -21,13 +21,11 @@ Chancellor [+ chancellor +] agrees with President [+ president +]'s dangerous rh
 - @negotiate
 
 @fight
-on-arrival: title: We shall fight a three-way war if it means that democracy survives for one more day!
+title: We beat the communists once, we shall beat them again
 on-arrival: triple_strength = rb_strength*rb_militancy*(1-dissent/2); defense_strength += prussian_police_strength*prussian_police_militancy*prussian_police_loyalty if spd_prussia; rival_strength = sa_strength*sa_militancy + sh_strength*sh_militancy + rfb_strength*rfb_militancy; true_strength += workers_spd_normalized*(2 - dissent)*(2 - unemployed/100); true_strength += reichswehr_strength*reichswehr_loyalty*reichswehr_militancy if president=="Braun" and spd_in_government
 go-to: tripartite_win if triple_strength >= rival_strength; tripartite_pre_civil_war if triple_strength < rival_strength
 
-The [+ rb_strength +] thousand-strong Reichsbanner have been deployed; many are in Berlin, preparing for the inevitable tripartite st
-
-ruggle.
+The [+ rb_strength +] thousand-strong Reichsbanner have been deployed; many are in Berlin, preparing for the inevitable tripartite struggle.
 
 [? if spd_prussia: The Prussian police has been deployed. ?] [? if spd_in_government and president == "Braun" : The portions of the Reichswehr that are loyal are also deployed. ?]
 
@@ -49,10 +47,9 @@ title: Communicate with the strikers to negotiate an end to the general strike
 
 We have begun negotiations with the striking unions and the KPD through unreliable backchannels. The communists are demanding massive reforms overnight to even consider the possibility of ending the strike.
 
-- @new_elections
 - @council_negotiations
 - @more_welfare
-- @fight
+- @fight_no_room
 
 @council_negotiations
 title: Our sectorial works councils could help address the strikers' grievances
