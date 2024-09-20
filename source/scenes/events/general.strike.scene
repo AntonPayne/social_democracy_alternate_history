@@ -9,7 +9,7 @@ tags: event
 
 = General Strike
 
-The KPD have mobilized several trade unions and angry workers within Germany to call a general strike demanding the resignation of our government as well as calls for 'Class against class'. The strategies the strikers are using seem extremely similar to the ones used during the Bolshevik and Spartacist revolutions. No one knows what is going on but the future is uncertain as of now...
+The KPD have mobilized several trade unions and angry workers within Germany to call a general strike demanding the resignation of our government as well as calls for *Class against class*. The strategies the strikers are using seem extremely similar to the ones used during the Bolshevik and Spartacist revolutions. No one knows what is going on but the future is uncertain as of now...
 
 [? if president != "Hindenburg" : President Hindenburg has already deployed police in several parts of the country with orders to shoot on sight. Rather than scare the strikers, these orders only seem to anger the Communists. Unless the SPD intervenes, a violent bloodbath may ensue, one that very well may send Germany into civil war. ?] [? if president != "Braun" : President Braun is being pressurized by the center and liberal parties to open fire on the strikers before they can do anything. To complicate matters, rumors are spreading that industrialists have hired far-right paramilitaries to engage in strike busting operations. One wrong move is all that will be needed to send Germany into a civil war. ?]
 
