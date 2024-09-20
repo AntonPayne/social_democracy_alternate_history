@@ -18,6 +18,7 @@ We must do something to protect the workers against these predations.
 - @prussian_police_training: Use the Prussian police to help train the Reichsbanner.
 - @peace: Try to avoid all militant confrontations, as much as possible.
 - @truce_rfb: Try to make peace with the RFB.
+- @help_rfb: Could we further our truce by helping the RFB in their skirmishes?
 - @easy_discard
 
 @battle
@@ -63,3 +64,12 @@ unavailable-subtitle: The KPD is not interested.
 on-arrival: kpd_truce = 1; kpd_relation += 5; rfb_strength += 50; rb_strength += 50; sa_strength += 50;
 
 We have made at least a temporary truce with the KPD, so that our respective paramilitaries will stop fighting.
+
+@help_rfb
+choose_if: kpd_truce >= 1
+view-if: kpd_truce >= 1; kpd_truce < 3
+on-arrival: kpd_truce += 1; kpd_relation += 3; workers_kpd += 3; unemployed_kpd += 2; z_relation -= 5; 
+
+Some members of the Reichsbanner assist the RFB in protecting the KPD's rallies from far-right hecklers. Our relation with the communists improves, although we also help them reach a larger audience. The Center Party is not as pleased, however.
+
+[? if kpd_truce = 3 After seeing Reichsbanner members fighting alongside the RFB to protect their rallies, the KPD is now ready to return the favour by defending our rallies. ?]
