@@ -52,7 +52,7 @@ The SA have won this show of strength.
 
 @united_defense
 subtitle: If this succeeds, we will officially bury the hatchet with the Communists...
-view-if: kpd_truce = 1; kpd_relation >= 55
+view-if: kpd_truce = 3; kpd_relation >= 55
 on-arrival: rfb_rb_success = rb_strength*rb_militancy + rfb_strength*rfb_militancy - sa_strength*sa_militancy;
 go-to: rfb_rb_protect_win if rfb_rb_success >= 0; rfb_rb_protect_lose if rfb_rb_success < 0
 
@@ -65,7 +65,7 @@ The united defense repelled the SA! Our meeting can go head as usual. However, o
 @rfb_rb_protect_lose
 on-arrival: workers_nsdap += 3; kpd_relation -= 2; left_dissent -= 2; reformist_dissent += 8; center_dissent += 7
 
-Despite the resistance put forth by the united defense, the SA have won this show of strength. Both sides are accussing each other of sabotage and our more right-leaning membership is furious.
+Despite the resistance put forth by the united defense, the SA have won this show of strength. Both sides are accusing each other of sabotage and our more right-leaning membership is furious.
 
 @main_rally
 
