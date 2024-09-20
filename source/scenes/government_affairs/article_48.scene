@@ -1,0 +1,51 @@
+title: Article 48
+new-page: true
+is-card: true
+view-if: President = "Braun" and judicial_reform >= 3 and neorevisionism
+frequency: 20
+on-arrival: month_actions += 1
+card-image: img/portraits/BraunOtto.jpg
+
+Article 48 of the Weimar Constitution allows the Reich president, under certain circumstances, to take emergency measures without the prior consent of the Reichstag. This power has been interpreted to allow the implementation of emergency decrees by the President.
+
+President Hindenburg often used Article 48 to promulgate anti-democratic and anti-worker ideals. Now that Otto Braun is in charge, could Article 48 be used for good as well as evil?
+
+- @use_48: Invoke Article 48.
+- @let_it_be: We can work within the confines of democracy.
+- @easy_discard
+
+@use_48
+
+Fine, we shall invoke Article 48. But, what agendas can we pursue with its invocation?
+
+- @regain_prussia
+- @extra_welfare
+- @revoke_hitler
+- @ban_opposition
+
+@regain_prussia
+view-if: spd_prussia = 0
+subtitle: Order the dismissal of the current Prussian government and return it to the SPD
+
+President Braun can order a *Reichsexecution* under Paragraph 1 of Article 48. We could argue that only if the SPD directly administers Prussia, that peace in the region can be restored.
+
+The legality of the action is questionable. Many of our members as well as the center and liberal parties are campaigning against such a blatantly undemocratic move, especially since we were the ones who willingly gave up control over Prussia in the first place.
+
+- @regain_prussia_2
+- @surrender
+
+@regain_prussia_2
+title: Their cries are ineffectual, Prussia is ours!
+on-arrival: coup_progress += 1; prussian_government = "SPD"; neorevisionist_dissent -= 10; left_dissent += 10; reformist_dissent += 10; workers_spd += 5; pro_republic -= 8; coalition_dissent += 2 if (in_grand_coalition or in_weimar_coalition); ddp_relation -= 5; dvp_relation -= 5; z_relation -= 5
+
+Despite massive protests, our forces are able to regain control over Prussia. The local police did not seem to mind the change in administration.
+
+@surrender
+title: We can always wait for the next state elections
+go-to: root
+
+Fine, we will not seize control over Prussia for now.
+
+
+@extra_welfare
+title: 
