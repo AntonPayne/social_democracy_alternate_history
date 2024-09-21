@@ -25,7 +25,7 @@ Fine, we shall invoke Article 48. But, what agendas can we pursue with its invoc
 
 @regain_prussia
 view-if: spd_prussia = 0
-subtitle: Order the dismissal of the current Prussian government and return it to the SPD
+title: Order the dismissal of the current Prussian government and return it to the SPD
 
 President Braun can order a *Reichsexecution* under Paragraph 1 of Article 48. We could argue that only if the SPD directly administers Prussia, that peace in the region can be restored.
 
@@ -48,4 +48,7 @@ Fine, we will not seize control over Prussia for now.
 
 
 @extra_welfare
-title: 
+title: Enact progressive taxation and welfare expansion
+on-arrival: budget -= 1; workers_spd += 10*(1-dissent); unemployed_spd += 10*(1-dissent); welfare += 1; reformist_dissent -= 5; labor_dissent -= 5; center_dissent -= 5; left_dissent -= 5; neorevisionist_dissent -= 5; coalition_dissent += 1 if welfare > 1; welfare_goal_completed += 1; inflation += 0.3; unemployed -= 0.4; dvp_relation -= 4; finance_goal_completed += 1; upper_tax_rates += 1; lower_tax_rates -= 1; capital_strike_progress += 2; capital_strike_progress += 1 if upper_tax_rates > 1; capital_strike_progress += 1 if upper_tax_rates > 3
+
+Article 48 was often used by President Hindenburg to further austerity politics. Now that we are in charge, the tables have finally turned. Our proletarian base celebrates our move. The middle classes are furious at the wealth taxes, even more so, as we passed these reforms through decree.
