@@ -3,17 +3,19 @@ new-page: true
 is-card: true
 tags: party_affairs
 view-if: international_relations_timer <= 0
-on-arrival: month_actions += 1; international_relations_timer += 12;
+on-arrival: month_actions += 1; international_relations_timer += 4;
 card-image: img/international.jpg
-max-visits: 3
+max-visits: 15
 
-At the Labor and Socialist International, we can forge contacts with our fraternal socialistparties in Europe and across the world.
+At the Labor and Socialist International, we can forge contacts with our fraternal socialist parties in Europe and across the world.
 
 - @fr_uk: Build relationships with the French SFIO and British Labour Party to move their governments in Germany's favor.
 - @austria: Learn organization and street fighting from the Austrian socialists.
 - @scandi: Learn the path of economics and reform from the Scandinavian social democrats.
 - @comintern: Forget the second international - embed a spy in the Comintern's conference.
-- @america: Contact the Socialist party of America.
+- @america: Contact the Socialist Party of America.
+- @america_2: Assist the Socialist Party of America
+- @america_3: Study the history of the Socialist Party of America
 - @return: We do not need international contacts at the moment.
 - @easy_discard
 
@@ -52,11 +54,20 @@ The Stalinists of the KPD insists on calling us "social fascists", suggesting th
 
 @america
 subtitle: -1 resources
-choose-if: resources >= 1
+choose-if: resources >= 1; contact_spa == 0
 unavailable-subtitle: Not enough resources.
-on-arrival: resources -= 1
+on-arrival: resources -= 1; contact_spa == 1
 
 The Socialist Party of America is tiny and has limited support. There is not much we can do for them, and conversely, not much they can do for us.
+
+@america_2
+subtitle: -1 resources
+view-if: contact_spa == 1; us_elections_seen == 0
+choose-if: resources >= 1
+unavailable-subtitle: Not enough resources.
+on-arrival: assist_spa += 1; center_dissent += 4 if assist_spa < 3; left_dissent += 4 if assist_spa < 3; reformist_dissent += 4 if assist_spa < 3
+
+@america_3
 
 @reduce
 
