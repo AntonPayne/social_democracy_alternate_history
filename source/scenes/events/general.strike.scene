@@ -21,7 +21,7 @@ Chancellor [+ chancellor +] agrees with President [+ president +]'s dangerous rh
 - @negotiate
 
 @fight
-title: We beat the communists once, we shall beat them again
+title: We beat the communists once, we shall beat them again!
 on-arrival: triple_strength = rb_strength*rb_militancy*(1-dissent/2); defense_strength += prussian_police_strength*prussian_police_militancy*prussian_police_loyalty if spd_prussia; rival_strength = sa_strength*sa_militancy + sh_strength*sh_militancy + rfb_strength*rfb_militancy; true_strength += workers_spd_normalized*(2 - dissent)*(2 - unemployed/100); true_strength += reichswehr_strength*reichswehr_loyalty*reichswehr_militancy if president=="Braun" and spd_in_government
 go-to: tripartite_win if triple_strength >= rival_strength; tripartite_pre_civil_war if triple_strength < rival_strength
 
@@ -48,10 +48,44 @@ title: Communicate with the strikers to negotiate an end to the general strike
 We have begun negotiations with the striking unions and the KPD through unreliable backchannels. The communists are demanding massive reforms overnight to even consider the possibility of ending the strike.
 
 - @council_negotiations
-- @more_welfare
+- @more_welfare_pre_depression
+- @more_welfare_post_depression
 - @fight_no_room
 
 @council_negotiations
 title: Our sectorial works councils could help address the strikers' grievances
 choose-if: works_councils = 3
+unavailable-subtitle: Our current system of works councils is too weak to enact the radical changes the strikers desire
+on-arrival: strikers-convinced == 1; workers_kpd -= 5(1-dissent); unemployed_kpd -= 5(1-dissent)
 
+By involving the works councils, empowered under our administration, we can address the core economic issues that led to the strike and strive to improve upon them.
+
+[? if strikers_convinced = 1 The strikers are convinced! Most labor unions have agreed to call off the general strike. However, the RFB continues to surround the Reichstag. More concessions will need to be extracted to peacefully resolve the crisis. ?]
+
+@more_welfare_pre_depression
+title: Increase social welfare spending
+choose-if: spd_in_government = 1
+unavailable-subtitle: The SPD is currently not in government
+on-arrival: budget -= 1; workers_spd += 6*(1-dissent); unemployed_spd += 6*(1-dissent); welfare += 1; welfare_goal_completed += 1; inflation += 0.3; unemployed -= 0.4
+
+By increasing welfare spending, we can pacify the strikers long enough to negotiate an end to the strike. Some of our detractors claim that we are throwing money at our problems rather than addressing greater systemic issues.
+
+[? if strikers_convinced = 1 The strikers are convinced! Most labor unions have agreed to call off the general strike. However, the RFB continues to surround the Reichstag. More concessions will need to be extracted to peacefully resolve the crisis. ?]
+
+@more_welfare_post_depression
+title: Increase social welfare spending
+choose-if: spd_in_government = 1
+unavailable-subtitle: The SPD is currently not in government
+on-arrival: budget -= 1; workers_kpd -= 3*(1-dissent); unemployed_kpd -= 3*(1-dissent); welfare_goal_completed += 1; inflation += 0.3
+
+By increasing welfare spending, we can pacify the strikers long enough to negotiate an end to the strike. Some of our detractors claim that we are throwing money at our problems rather than addressing greater systemic issues.
+
+[? if strikers_convinced = 1 The strikers are convinced! Most labor unions have agreed to call off the general strike. However, the RFB continues to surround the Reichstag. More concessions will need to be extracted to peacefully resolve the crisis. ?]
+
+@fight_no_room
+title: There is no room for negotiation, we will fight the communist instead!
+go-to: fight
+
+@negotiate_kpd
+title: The strikers have been pacified, now, the communists...
+view-if: strikers_convinced = 1
