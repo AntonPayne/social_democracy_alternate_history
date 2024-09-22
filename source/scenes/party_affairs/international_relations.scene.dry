@@ -2,12 +2,14 @@ title: International Relations
 new-page: true
 is-card: true
 tags: party_affairs
-view-if: international_relations_timer <= 0
-on-arrival: month_actions += 1; international_relations_timer += 4;
+on-arrival: month_actions += 1; international_relations_timer += 12 if international_relations_timer = 0
+frequency: 30
 card-image: img/international.jpg
 max-visits: 15
 
-At the Labor and Socialist International, we can forge contacts with our fraternal socialist parties in Europe and across the world.
+[? if international_relations_timer = 0 : At the Labor and Socialist International, we can forge contacts with our fraternal socialist parties in Europe and across the world. ?]
+[? if international_relations_timer > 0 : While the Labor and Socialist International is far away, our envoys can still forge contacts with our fraternal socialist parties in Europe and across the world. ?]
+
 
 - @fr_uk: Build relationships with the French SFIO and British Labour Party to move their governments in Germany's favor.
 - @austria: Learn organization and street fighting from the Austrian socialists.
@@ -67,7 +69,13 @@ choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
 on-arrival: assist_spa += 1; center_dissent += 4 if assist_spa < 3; left_dissent += 4 if assist_spa < 3; reformist_dissent += 4 if assist_spa < 3
 
+We provide financial support and political advice to the fledgling Socialist Party of America with the hope that they can achieve victory in the 1932 US Presidential elections.
+
+[? if assist_spa < 3 : However, many in our party consider this a waste of time and resources, claiming that the current electoral system in the US ensures that socialists stay out of power. ?]
+
 @america_3
+subtitle: Perhaps socialists in Germany can learn something from the fate of socialism in America
+view-if: us_elections_seen = 1
 
 @reduce
 
