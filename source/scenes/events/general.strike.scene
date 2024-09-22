@@ -4,14 +4,14 @@ view-if: (spd_in_government = 1 and unions_independent = 1 and kpd_relation < 5 
 new-page: true
 max-visits: 1
 on-arrival: general_strike_seen = 1; rfb_strength += 20
-go-to: should_resign if spd_in_government and president != "Braun"; gov_menu if president = "Braun"; non_gov_menu if spd_in_government = 0 and president != "Braun"
+go-to: should_intervene if spd_in_government and president != "Braun"; gov_menu if president = "Braun"; non_gov_menu if spd_in_government = 0 and president != "Braun"
 tags: event
 
 = General Strike
 
 The KPD have mobilized several trade unions and angry workers within Germany to call a general strike demanding the resignation of our government as well as calls for *Class against class*. The strategies the strikers are using seem extremely similar to the ones used during the Bolshevik and Spartacist revolutions. No one knows what is going on but the future is uncertain as of now...
 
-[? if president != "Hindenburg" : President Hindenburg has already deployed police in several parts of the country with orders to shoot on sight. Rather than scare the strikers, these orders only seem to anger the Communists. Unless the SPD intervenes, a violent bloodbath may ensue, one that very well may send Germany into civil war. ?] [? if president != "Braun" : President Braun is being pressurized by the center and liberal parties to open fire on the strikers before they can do anything. To complicate matters, rumors are spreading that industrialists have hired far-right paramilitaries to engage in strike busting operations. One wrong move is all that will be needed to send Germany into a civil war. ?]
+[? if president != "Hindenburg" : President Hindenburg has already deployed police in several parts of the country with orders to shoot on sight. Rather than scare the strikers, these orders only seem to anger the Communists. Unless the SPD intervenes, a violent bloodbath may ensue, one that very well may send Germany into civil war. ?] [? if president != "Braun" : President Braun is being pressurized by the center and liberal parties to open fire on the strikers before they can do anything. ?] To complicate matters, rumors are spreading that industrialists have hired far-right paramilitaries to engage in strike busting operations. One wrong move is all that will be needed to send Germany into a civil war.
 
 @non_gov_menu
 
@@ -83,7 +83,7 @@ By increasing welfare spending, we can pacify the strikers long enough to negoti
 [? if strikers_convinced = 1 The strikers are convinced! Most labor unions have agreed to call off the general strike. However, the RFB continues to surround the Reichstag. More concessions will need to be extracted to peacefully resolve the crisis. ?]
 
 @fight_no_room
-title: There is no room for negotiation, we will fight the communist instead!
+title: There is no room for negotiation, we will fight the communists instead!
 go-to: fight
 
 @negotiate_kpd
@@ -116,7 +116,7 @@ title: What the KPD seeks in unreasonable, we shall fight the communists instead
 go-to: fight
 
 @snap_elections_braun
-on-arrival: coup_progress -= 3; next_election_time = time + 1 if next_election_time > time+1; next_election_month = month + 1 if next_election_time >= time+1; next_election_year = year if next_election_time >= time+1; next_election_year += 1 if next_election_month > 12; next_election_month -= 12 if next_election_month > 12;
+on-arrival: coup_progress -= 3; next_election_time = time+1 if next_election_time > time+1; next_election_month = month + 1 if next_election_time >= time+1; next_election_year = year if next_election_time >= time+1; next_election_year += 1 if next_election_month > 12; next_election_month -= 12 if next_election_month > 12;
 
 With the mediation of President Braun, snap elections are called for next month. The KPD seems to believe that they would achieve electoral victory if elections were to held right now.
 
@@ -124,7 +124,7 @@ The communists back down! The RFB pulls back on Ernst Thälmann's orders.
 
 @snap_elections_hindenburg
 
-President Hindenburg sabotages our proposal for new snap elections and insists that the status quo remains. The KPD cuts off all communication with us, believing that we are simply wasting their time.
+President Hindenburg sabotages our proposal for new snap elections and insists that the status quo remain intact. The KPD cuts off all communication with us, believing that we are simply wasting their time.
 
 The RFB charges towards the Reichstag!
 
@@ -132,3 +132,32 @@ The RFB charges towards the Reichstag!
 title: President Hindenburg has left us no choice but to fight the communists...
 go-to: fight
 
+@gov_menu
+
+Given our party's Marxist roots, it would be antithetical to open fire on our proletarian citizens, no matter how much the bourgeois parties pester us. Whatever choice we make, we can only hope it is for the greater good.
+
+- @diplomatic
+- @shoot
+
+@diplomatic
+title: Try to be diplomatic with the strikers
+go-to: negotiate
+
+@shoot
+title: Implement shoot-on-sight orders
+go-to: fight
+
+@should-intervene
+
+As the SPD is currently in government, we can intervene to prevent a civil war.
+
+- @contact
+- @nevermind
+
+@contact
+title: Contact and strikers and see if we can find any common ground
+go-to: negotiate
+
+@nevermind
+title: Let's go with what the bourgeois parties are doing
+go-to: fight
