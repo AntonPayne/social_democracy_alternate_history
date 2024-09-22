@@ -102,3 +102,33 @@ subtitle: This is exactly what the communists want
 go-to: snap_elections_braun if president == "Braun"; snap_elections_hindenburg if president != "Braun"
 
 @pardon
+title: We could grant judicial pardons to communist political prisoners
+choose-if: judicial_reform >= 4
+unavailable-subtitle: The reactionary judiciary would never allow this
+on-arrival: coup_progress -= 3; workers_kpd += 5; workers_other += 3
+
+We pardon communist political prisoners and veterans of the Spartacist uprising. Most join the KPD while some form their own political parties.
+
+The communists back down! The RFB pulls back on Ernst Thälmann's orders.
+
+@fight_unreasonable
+title: What the KPD seeks in unreasonable, we shall fight the communists instead!
+go-to: fight
+
+@snap_elections_braun
+on-arrival: coup_progress -= 3; next_election_time = time + 1 if next_election_time > time+1; next_election_month = month + 1 if next_election_time >= time+1; next_election_year = year if next_election_time >= time+1; next_election_year += 1 if next_election_month > 12; next_election_month -= 12 if next_election_month > 12;
+
+With the mediation of President Braun, snap elections are called for next month. The KPD seems to believe that they would achieve electoral victory if elections were to held right now.
+
+The communists back down! The RFB pulls back on Ernst Thälmann's orders.
+
+@snap_elections_hindenburg
+
+President Hindenburg sabotages our proposal for new snap elections and insists that the status quo remains. The KPD cuts off all communication with us, believing that we are simply wasting their time.
+
+The RFB charges towards the Reichstag!
+
+- @fight_no_choice
+title: President Hindenburg has left us no choice but to fight the communists...
+go-to: fight
+
