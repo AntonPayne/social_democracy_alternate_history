@@ -89,3 +89,16 @@ go-to: fight
 @negotiate_kpd
 title: The strikers have been pacified, now, the communists...
 view-if: strikers_convinced = 1
+
+While the strikers were easy to convince, the KPD and their militant wing, the RFB, are demanding more concessions to end the seige of the Reichstag. We have sent an envoy to negotiate a peace deal...but the results are uncertain.
+
+- @snap_elections
+- @pardon
+- @fight_unreasonable
+
+@snap_elections
+title: Resign our positions in the government and hold snap elections
+subtitle: This is exactly what the communists want
+go-to: snap_elections_braun if president == "Braun"; snap_elections_hindenburg if president != "Braun"
+
+@pardon
