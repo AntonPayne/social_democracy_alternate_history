@@ -12,6 +12,7 @@ Braun [? if spd_prussia = 1 : is ?][? if spd_prussia = 0 : was ?] the Minister-P
 - @coalition
 - @prussian_bulwark
 - @snap_election
+- @article_48
 - @root: Return to main
 
 @coalition
@@ -39,3 +40,11 @@ choose-if: advisor_action_timer == 0 and (chancellor == "Braun" or (president ==
 on-arrival: advisor_action_timer = 6; next_election_time = time + 3 if next_election_time > time+3; next_election_month = month + 3 if next_election_time >= time+3; next_election_year = year if next_election_time >= time+3; next_election_year += 1 if next_election_month > 12; next_election_month -= 12 if next_election_month > 12; 
 
 We have called for new elections, set for [+ next_election_month : month +] [+ next_election_year +].
+
+@article_48
+title: Article 48
+subtitle: President Braun can invoke Article 48.
+unavailable-subtitle: [? if president != "Braun" : Braun must be President. ?] [? if judicial_reform < 3 : The judiciary might challenge this move. ?] [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+choose-if: advisor_action_timer == 0 and president == "Braun"
+on-arrival: advisor_action_timer = 6
+go-to: article_48
