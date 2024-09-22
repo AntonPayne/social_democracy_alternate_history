@@ -24,7 +24,8 @@ Fine, we shall invoke Article 48. But, what agendas can we pursue with its invoc
 - @ban_opposition
 
 @regain_prussia
-view-if: spd_prussia = 0
+choose-if: spd_prussia = 0
+unavailable-subtitle: We are already in control of Prussia.
 title: Order the dismissal of the current Prussian government and return it to the SPD
 
 President Braun can order a *Reichsexecution* under Paragraph 1 of Article 48. We could argue that only if the SPD directly administers Prussia, that peace in the region can be restored.
