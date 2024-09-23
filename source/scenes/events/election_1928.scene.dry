@@ -376,7 +376,7 @@ on-arrival: chancellor = nsdap_leader; chancellor_party = "NSDAP"
 on-arrival: chancellor = "Hugenberg"; chancellor_party = "DNVP"; spd_in_government = 0; spd_toleration = 0; foreign_minister_party = "DNVP"; interior_minister_party = "DNVP"; justice_minister_party = "NSDAP"; labor_minister_party = "DNVP"; reichswehr_minister_party = "NSDAP"; economic_minister_party = "DNVP"; finance_minister_party = "DNVP"; agriculture_minister_party = "DNVP"
 
 
-The far-right parties have agreed to a coalition government. The DNVP secured the Chancellorship and most of the ministries. The NSDAP acquired the justice ministry and the Reichswehr. [? if hitler_deported = 1 Immediately, the now NSDAP-controlled justice ministry grants Hitler citizenship and forces Hugenberg to make him the new Chancellor. ?]
+The far-right parties have agreed to a coalition government. The DNVP secured the Chancellorship and most of the ministries. The NSDAP acquired the justice ministry and the Reichswehr. [? if hitler_deported = 1 : Immediately, the now NSDAP-controlled justice ministry grants Hitler citizenship and forces Hugenberg to make him the new Chancellor. ?]
 
 - @hitler_takes_power: What do we do now?
 
