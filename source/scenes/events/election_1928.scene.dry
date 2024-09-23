@@ -356,11 +356,12 @@ The Center manages to diffuse some of the hostility from the Reichswehr and the 
 
 
 @far_right_coalition
-title: Far-right coalition
+title: Unfortunately, a far-right coalition is the only possible government
 subtitle: NSDAP + DNVP ([+ far_right_coalition +]%)
 view-if: far_right_coalition >= 50
-go-to: far_right_win if (year >= 1932 or nsdap_r >= 44) and president != "Braun"; far_right_fail if (year < 1932 and nsdap_r < 44) and president != "Braun"; far_right_braun if president == "Braun"
-priority: 2
+choose-if: hitler_deported = 1
+unavailable-subtitle: Hitler will not settle for a mere coalition agreement.
+go-to: far_right_compromise if nsdap < 30; far_right_fail if z_relation >= 30; hitler_chancellor if z_relation < 30 and President != "Braun" and nsdap >= 30
 
 There are enough votes for the Nazis and the DNVP to form a coalition. [+ nsdap_leader +] has made his participation in government contingent on being appointed chancellor. It is up to President [+ president +] to decide.
 
@@ -371,11 +372,17 @@ on-arrival: chancellor = nsdap_leader; chancellor_party = "NSDAP"
 
 - @hitler_takes_power: What do we do now?
 
+@far_right_compromise
+on-arrival: chancellor = "Hugenberg"; chancellor_party = "DNVP"
+
+The far-right parties have agreed to a coalition government. The DNVP secured Chancellorship and most of the ministries. The NSDAP acquired the justice ministry and the Reichswehr. [? if Immediately, the now NSDAP-controlled justice ministry grants Hitler citizenship and forces Hugenberg to make him the new Chancellor. ?]
+
+- @hitler_takes_power: What do we do now?
 
 @far_right_fail
 on-arrival: chancellor = "Schleicher"; chancellor_party = "I"; pro_republic -= 10; next_election_time = time+5; next_election_month = month + 5; next_election_year = year; next_election_year += 1 if next_election_month > 12; next_election_month -= 12 if next_election_month > 12;
 
-The reactionary establishment is still very skeptical of the Nazis, so instead, [+ president +] appoints Kurt von Schleicher, a former general, as chancellor, to try to "tame" the Nazis.
+The reactionary establishment is still very skeptical of the Nazis, so instead, [+ president +] appoints Kurt von Schleicher, a former general, as chancellor to try to "tame" the Nazis.
 
 Schleicher's government is deeply unpopular among all parties of the Reichstag. Despite his support for a coalition with the NSDAP, the Nazis want power all to themselves, without Schleicher.
 
@@ -467,7 +474,7 @@ In response to the KPD's entrance into the government, the right-wing takes a "w
 
 The KPD has taken an abstentionist position with regards to ministries. They claim to be participating as the "loyal opposition" in the worker's government, supporting us from the outside while also running their own propaganda campaigns to turn workers to their side. They seem to expect that we would inevitably fail, and that our failure would benefit them. 
 
-Whatever their reasoning is, the SPD has control over the ministries of government.
+Whatever their reasoning is, the SPD has control over all the ministries of government.
 
 @left_coalition_civil_war
 on-arrival: reichswehr_loyalty += 0.1
@@ -484,7 +491,7 @@ title: A right-wing coalition may be formed.
 subtitle: Z + BVP + DVP + DNVP + Others ([+ right_coalition +]%)
 unavailable-subtitle: The DNVP is not interested in a coalition with the Center.
 view-if: right_coalition >= 50
-choose-if: year < 1928
+choose-if: 
 go-to: no_right_coalition if year >= 1930; right_coalition_2 if year <= 1929
 
 There are enough votes for a right-wing coalition of the Center (+ BVP), DVP, DNVP, and minor conservative parties.
