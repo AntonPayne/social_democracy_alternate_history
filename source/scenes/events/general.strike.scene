@@ -60,7 +60,7 @@ on-arrival: strikers-convinced == 1; workers_kpd -= 5(1-dissent); unemployed_kpd
 
 By involving the works councils, empowered under our administration, we can address the core economic issues that led to the strike and strive to improve upon them.
 
-[? if strikers_convinced = 1 The strikers are convinced! Most labor unions have agreed to call off the general strike. However, the RFB continues to surround the Reichstag. More concessions will need to be extracted to peacefully resolve the crisis. ?]
+The strikers are convinced! Most labor unions have agreed to call off the general strike. However, the RFB continues to surround the Reichstag. More concessions will need to be extracted to peacefully resolve the crisis.
 
 @more_welfare_pre_depression
 title: Increase social welfare spending
@@ -70,7 +70,7 @@ on-arrival: budget -= 1; workers_spd += 6*(1-dissent); unemployed_spd += 6*(1-di
 
 By increasing welfare spending, we can pacify the strikers long enough to negotiate an end to the strike. Some of our detractors claim that we are throwing money at our problems rather than addressing greater systemic issues.
 
-[? if strikers_convinced = 1 The strikers are convinced! Most labor unions have agreed to call off the general strike. However, the RFB continues to surround the Reichstag. More concessions will need to be extracted to peacefully resolve the crisis. ?]
+The strikers are convinced! Most labor unions have agreed to call off the general strike. However, the RFB continues to surround the Reichstag. More concessions will need to be extracted to peacefully resolve the crisis.
 
 @more_welfare_post_depression
 title: Increase social welfare spending
@@ -80,7 +80,7 @@ on-arrival: budget -= 1; workers_kpd -= 3*(1-dissent); unemployed_kpd -= 3*(1-di
 
 By increasing welfare spending, we can pacify the strikers long enough to negotiate an end to the strike. Some of our detractors claim that we are throwing money at our problems rather than addressing greater systemic issues.
 
-[? if strikers_convinced = 1 The strikers are convinced! Most labor unions have agreed to call off the general strike. However, the RFB continues to surround the Reichstag. More concessions will need to be extracted to peacefully resolve the crisis. ?]
+The strikers are convinced! Most labor unions have agreed to call off the general strike. However, the RFB continues to surround the Reichstag. More concessions will need to be extracted to peacefully resolve the crisis.
 
 @fight_no_room
 title: There is no room for negotiation, we will fight the communists instead!
@@ -149,13 +149,13 @@ go-to: fight
 
 @should-intervene
 
-As the SPD is currently in government, we can intervene to prevent a civil war.
+As the SPD is currently in government, we have some sway on how to deal with the strikers.
 
 - @contact
 - @nevermind
 
 @contact
-title: Contact and strikers and see if we can find any common ground
+title: Contact the strikers and see if we can find any common ground
 go-to: negotiate
 
 @nevermind
