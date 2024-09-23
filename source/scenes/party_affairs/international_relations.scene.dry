@@ -69,9 +69,10 @@ choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
 on-arrival: assist_spa += 1; center_dissent += 4 if assist_spa < 3; left_dissent += 4 if assist_spa < 3; reformist_dissent += 4 if assist_spa < 3
 
-We provide financial support and political advice to the fledgling Socialist Party of America with the hope that they can achieve victory in the 1932 US Presidential elections.
+We provide financial support and political advice to the fledgling Socialist Party of America with the hope that they can achieve victory in the upcoming US Presidential elections.
 
 [? if assist_spa < 3 : However, many in our party consider this a waste of time and resources, claiming that the current electoral system in the US ensures that socialists stay out of power. ?]
+[? if assist_spa >= 3 : Since we have been providing supplies to the SPA for a while, they have been able to spread the message of socialism throughout the United States. They claim that they shall achieve the Presidency if we continue with the aid! ?]
 
 @america_3
 subtitle: Perhaps socialists in Germany can learn something from the fate of socialism in America
