@@ -1,7 +1,7 @@
 title: Article 48
 new-page: true
 is-card: true
-view-if: President = "Braun" and judicial_reform >= 3 and neorevisionism
+view-if: President = "Braun" and judicial_reform >= 2 and neorevisionism
 frequency: 20
 on-arrival: month_actions += 1
 card-image: img/portraits/BraunOtto.jpg
@@ -67,18 +67,35 @@ The Reichstag is filled with political parties that go against our vision of an 
 @ban_kpd
 view-if: kpd_banned = 0
 
-The communists have been the SPD's primary enemy ever since the Spartacist uprising [? if blutmai = 1 even more after Blutmai ?]. We have the opportunity to ban them from the Reichstag.
+The communists have been the SPD's primary enemy ever since the Spartacist uprising. We have the opportunity to ban them from the Reichstag [? if blutmai = 1 : following the events of Blutmai ?].
 
 The left wing of our party will be absolutely furious if we go about with the ban.
 
 - @ban_kpd_2: Sign the orders to ban the KPD
-- @as_is: Nevermind, we won't ban the KPD
+- @as_is_kpd: Nevermind, we won't ban the KPD
 
 @ban_kpd_2
-on-arrival: kpd_banned = 1; kpd_relation = 1; left_dissent += 30; Q.kpd_r = 0; kpd_party_name = "KPD-R"; workers_kpd -= 5; workers_other += 5; pro_republic -= 15; z_relation += 20; dvp_relation += 20
+on-arrival: kpd_banned = 1; kpd_relation = 1; left_dissent += 50; Q.kpd_r = 0; kpd_party_name = "KPD-R"; workers_kpd -= 15; workers_other += 10; pro_republic -= 15; z_relation += 20; dvp_relation += 20; kpd_truce = 0 if kpd_truce >= 1
 
-We constitutionally ban the KPD. All their Reichstag seats are given to other parties, much to the anger of our party's left. A furious Ernst Thälmann increases the militancy of the RFB [? kpd <= 1 and breaks the truce previously agreed upon by our paramilitaries. ?] He is now starting another communist party from scratch, calling it the *Kommunistische Partei Deutschlands – Revolutionär*. It is unknown how successful this new party will be, however.
+We constitutionally ban the KPD. All their Reichstag seats are given to other parties, much to the anger of our party's left. A furious Ernst Thälmann increases the militancy of the RFB [? kpd_truce >= 1 : and breaks the truce previously agreed upon by our paramilitaries. ?] He is now starting another communist party from scratch, calling it the *Kommunistische Partei Deutschlands – Revolutionär*. It is unknown how successful this new party will be, however.
 
+@ban_nsdap
+view-f: nsdap_banned = 0
+choose-if: judicial_reform >= 4
+unavailable-subtitle: The reactionary judiciary would never allow this.
+
+The Nazis have made their goal of destroying the Weimar Republic clear. We have the opportunity to ban them from the Reichstag [? if altona = 1 : following the events of Altona Sunday. ?] But is it democratic to undemocratically remove such a political party?
+
+- @ban_nsdap_2: Sign the orders to ban the NSDAP
+- @as_is_nsdap: Nevermind, we won't ban the NSDAP
+
+@ban_nsdap_2
+on-arrigal: coup_progress += 3; nsdap_banned = 1; reformist_dissent += 10; nsdap_party_name = "NSBP";
+
+We constitutionally ban the NSDAP. All their Reichstag seats are given to other parties, much to the anger of the reactionary establishment. The Nazis appeal the constitutional ban in court citing freedom of speech. Thankfully, the courts agree with us. A furious [+ nsdap_leader +] increases the militancy of the SA. He is now starting another far-right party from scratch, calling it the *Nationalsozialistische Deutsche Bruderschaftspartei*. It is unknown how successful this new party will be, however.
+
+@as_is_nsdap
+go-to: nvm
 
 
 @as_is
