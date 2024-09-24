@@ -38,6 +38,7 @@ The legality of the action is questionable. Many of our members as well as the c
 @regain_prussia_2
 title: Their cries are ineffectual, Prussia is ours!
 on-arrival: coup_progress += 1; prussian_government = "SPD"; neorevisionist_dissent -= 10; left_dissent += 10; reformist_dissent += 10; workers_spd += 5; pro_republic -= 8; coalition_dissent += 2 if (in_grand_coalition or in_weimar_coalition); ddp_relation -= 5; dvp_relation -= 5; z_relation -= 5
+achievement: Reichsexecution
 
 Despite massive protests, our forces are able to regain control over Prussia. The local police did not seem to mind the change in administration.
 
@@ -92,7 +93,7 @@ The Nazis have made their goal of destroying the Weimar Republic clear. We have 
 @ban_nsdap_2
 on-arrigal: coup_progress += 3; nsdap_banned = 1; reformist_dissent += 10; nsdap_party_name = "NSBP";
 
-We constitutionally ban the NSDAP. All their Reichstag seats are given to other parties, much to the anger of the reactionary establishment. The Nazis appeal the constitutional ban in court citing freedom of speech. Thankfully, the courts agree with us. A furious [+ nsdap_leader +] increases the militancy of the SA. He is now starting another far-right party from scratch, calling it the *Nationalsozialistische Deutsche Bruderschaftspartei*. It is unknown how successful this new party will be, however.
+We constitutionally ban the NSDAP. All their Reichstag seats are given to other parties, much to the anger of the reactionary establishment. The Nazis appeal the constitutional ban in court citing freedom of speech. Thankfully, the courts agree with us. A furious [+ nsdap_leader +] increases the militancy of the SA. He is now starting another far-right party from scratch, calling it the *Nationalsozialistische Bruderschaftspartei*. It is unknown how successful this new party will be, however.
 
 @as_is_nsdap
 go-to: nvm
