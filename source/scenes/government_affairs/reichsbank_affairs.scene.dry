@@ -1,0 +1,57 @@
+title: Reichsbank Affairs
+new-page: true
+is-card: true
+tags: govt_affairs
+on-arrival: reichsbank_timer += 6; month_actions += 1
+view-if: reichsbank_timer = 0 and (economic_minister_party = "SPD" or finance_minister_party = "SPD" or chancellor_party = "SPD")
+card-image: img/portraits/SchachtHjalmar.jpg
+
+= Reichsbank Affairs
+
+The *Reichsbank* has been the proud central bank of Germany since 1876. During the hyperflation period of 1923, the Reichsbank successfully prevented the Germany economy from being completely unsalvagable by introducing the current Reichsmark.
+
+Under the Presidency of [? if reichsbank_president = "Schacht" and investigate_far_right >= 1: the reactionary ?] [+ reichsbank_president +], the Reichsbank serves as a fiercely independent source of credit for the German government.
+
+- @undermine: Try to undermine Schacht's legitimacy.
+- @expose: Expose Schact's reactionary dealings!
+- @deficit: Undertake a general deficit spending program.
+- @council: Could we modify the structure of the general council?
+- @loan: Deal with our loan situation instead.
+- @root: We should not interfere with the Reichsbank for now.
+
+@undermine
+view-if: reichsbank_president = "Schacht"
+go-to: @undermine_2 if schacht_stress < 4; @schacht_resign if schacht_stress >= 4
+
+@undermine_2
+on-arrival: schacht_stress += 1
+
+We try to apply political pressure on Hjalmar Schacht through unreliable back channels. While attacking the independence of the central bank would help us oust Schacht in the future, it could also hamper our economic response.
+
+@schacht_resign
+on-arrival: capital_strike_progress += 1
+
+Our attempts to undermine Schacht's legitimacy cause him to frantically resign! German businesses, however, do not celebrate his resignation as eagerly as we do. Anyways, we now have to pick a new President to succeed him.
+
+- @luther: Hans Luther is the natural choice.
+- @wissell: Pull some strings to appoint Rudolf Wissell.
+
+@luther
+subtitle: President Hindenburg is leaning towards this candidate.
+on-arrival: reichsbank_president = "Luther"
+
+Hans Luther was the former Chancellor of Germany and a firm supporter of Heinrich Brüning's economic policies. After giving up his membership within the DVP, he will begin his new work soon.
+
+@wissell
+subtitle: Appointing a fellow party member would allow us more options.
+choose-if: z_relation >= 50
+unavailable_subtitle: President Hindenburg is not convinced.
+
+[? if labor_minister_party != "SPD": Having previously served ?] [? if labor_minister_party = "SPD": Currently serving ?] as the Labor Affairs minister, Rudolf Wissell has been a reputed economist within our party. With President Hindenburg's approval, he will begin his new work soon.
+
+@expose
+view-if: reichsbank_president = "Schacht" and investigate_far_right >= 1
+max-visit: 1
+on-arrival: schacht_exposed == 1 and schacht_stress += 2
+
+Our newspapers are the first to expose Schacht's reactionary dealings and it becomes nationwide news for around a week. The bourgeois establishment is less likely to trust his words now.
