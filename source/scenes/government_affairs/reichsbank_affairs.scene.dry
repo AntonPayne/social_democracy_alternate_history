@@ -15,6 +15,7 @@ Under the Presidency of [? if reichsbank_president = "Schacht" and investigate_f
 - @undermine: Try to undermine Schacht's legitimacy.
 - @expose: Expose Schact's reactionary dealings!
 - @deficit: Undertake a general deficit spending program.
+- @print: Turn on the printing machine!
 - @council: Could we modify the structure of the general council?
 - @loan: Deal with our loan situation instead.
 - @root: We should not interfere with the Reichsbank for now.
@@ -56,3 +57,7 @@ max-visit: 1
 on-arrival: schacht_exposed == 1 and schacht_stress += 2
 
 Our newspapers are the first to expose Schacht's reactionary dealings and it becomes nationwide news for around a week. The bourgeois establishment is less likely to trust his words now.
+
+@deficit
+subtitle: This sets forth a dangerous precedent...
+choose-if: schacht_stress >= 3 or reichsbank_president = "Wissell"
