@@ -1,0 +1,15 @@
+title: Iron Front Goes Rogue
+new-page: true 
+subtitle: The neorevisionists are disappointed in us.
+tags: event
+view-if: neorevisionist_dissent >= 60 and iron_front_formed == 1
+on-arrival: rogue_iron_front = 1; neorevionist_strength = labor_strength/2; workers_spd -= 20; unemployed_spd -= 10; workers_z += 5 if rb_exit = 0; n_advisors -= 1 if woytinsky_advisor == 1; n_advisors -= 1 if leipart_advisor == 1; woytinsky_advisor = 0; leipart_advisor = 0; rb_strength -= 700; rb_militancy -= 0.1 workers_sapd += 4 if sapd_formed; unemployed_sapd += 6 if sapd_formed;
+max-visits: 1
+
+= Iron Front Goes Rogue
+
+The neorevisionist movement believes that we are being too passive against the Nazi threat. Members of the Iron Front are now disobeying the party line and have declared the anti-fascist organization to be independent of any party. Some have even entered into negotiations with the KPD [? if sapd_formed = 1 and even the dissident SAPD ?] with the hope that they will take the reactionary threat more seriously than we did.
+
+Noticing the discord tearing apart the republican movement, the Nazis are growing in power.
+
+Many militant members of the Reichsbanner have quit and the neorevisionist movement within our party died as early as it appeared. [? if rb_exit = 0 Noticing the power vacuum, the influence of Zentrum and the DDP in the Reichsbanner is now equal to that of the Social Democrats. ?]
