@@ -1,6 +1,6 @@
 title: Hjalmar Schacht against Hilferding
 new-page: true
-view-if: year = 1929 and month >= 11 and spd_in_government = 1 and finance_minister = "Hilferding" and reichsban_president = "Schacht" and finance_minister_party = "SPD" and schact_exposed = 0
+view-if: year = 1929 and month >= 11 and spd_in_government = 1 and finance_minister = "Hilferding" and reichsbank_president = "Schacht" and finance_minister_party = "SPD" and schact_exposed = 0
 tags: event
 max-visits: 1
 face-image: img/portraits/SchachtHjalmar.jpg
