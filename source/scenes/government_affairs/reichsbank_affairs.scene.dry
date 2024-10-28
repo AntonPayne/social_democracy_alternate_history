@@ -2,7 +2,7 @@ title: Reichsbank Affairs
 new-page: true
 is-card: true
 tags: govt_affairs
-on-arrival: reichsbank_timer += 6; month_actions += 1
+on-arrival: reichsbank_timer += 4; month_actions += 1
 view-if: reichsbank_timer = 0 and (economic_minister_party = "SPD" or finance_minister_party = "SPD" or chancellor_party = "SPD")
 card-image: img/portraits/SchachtHjalmar.jpg
 
@@ -18,6 +18,7 @@ Under the Presidency of [? if reichsbank_president = "Schacht" and investigate_f
 - @council: Could we modify the structure of the general council?
 - @loan: Deal with our loan situation instead.
 - @root: We should not interfere with the Reichsbank for now.
+- @easy_discard
 
 @undermine
 view-if: reichsbank_president = "Schacht"
