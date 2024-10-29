@@ -8,7 +8,7 @@ card-image: img/portraits/SchachtHjalmar.jpg
 
 = Reichsbank Affairs
 
-The *Reichsbank* has been the proud central bank of Germany since 1876. During the hyperflation period of 1923, the Reichsbank successfully prevented the Germany economy from being completely unsalvagable by introducing the current Reichsmark.
+The *Reichsbank* has been the proud central bank of Germany since 1876. During the hyperflation period of 1923, the Reichsbank successfully prevented the German economy from being completely unsalvagable by introducing the current Reichsmark.
 
 Under the Presidency of [? if reichsbank_president = "Schacht" and investigate_far_right >= 1: the reactionary ?] [+ reichsbank_president +], the Reichsbank serves as a fiercely independent source of credit for the German government.
 
@@ -37,19 +37,27 @@ Our attempts to undermine Schacht's legitimacy cause him to frantically resign! 
 
 - @luther: Hans Luther is the natural choice.
 - @wissell: Pull some strings to appoint Rudolf Wissell.
+- @feder: Gottfried Feder is the forbidden third option.
 
 @luther
-subtitle: President Hindenburg is leaning towards this candidate.
-on-arrival: reichsbank_president = "Luther"
+subtitle: [? if president = "Hindenburg" : President Hindenburg ?] [? if president = "Braun" : The bourgeois establishment ?] is leaning towards this candidate.
+on-arrival: reichsbank_president = "Luther"; coalition_dissent -= 1 if (in_grand_coalition = 1 or in_popular_front = 1 or in_minority_government = 1 or in_weimar_coalition = 1)
 
 Hans Luther was the former Chancellor of Germany and a firm supporter of Heinrich Brüning's economic policies. After giving up his membership within the DVP, he will begin his new work soon.
 
 @wissell
 subtitle: Appointing a fellow party member would allow us more options.
-choose-if: z_relation >= 50
+choose-if: z_relation >= 50 or president = "Braun"
 unavailable_subtitle: President Hindenburg is not convinced.
 
-[? if labor_minister_party != "SPD": Having previously served ?] [? if labor_minister_party = "SPD": Currently serving ?] as the Labor Affairs minister, Rudolf Wissell has been a reputed economist within our party. With President Hindenburg's approval, he will begin his new work soon.
+[? if labor_minister_party != "SPD": Having previously served ?] [? if labor_minister_party = "SPD": Currently serving ?] as the Labor Affairs minister, Rudolf Wissell has been a reputed economist within our party. With President [+ president +]'s approval, he will begin his new work soon.
+
+@feder
+choose-if: President != "Braun" and z_relation <= 45; 
+unavailable-subtitle: We cannot possibly replace one reactionary with another.
+on-arrival: reichsbank_president = "Feder"; nsdap_workers += 3; capital_strike_progress += 1
+
+Gottfried Feder is a prominent civil engineer and a self-taught economist from the NSDAP. His economic policies appear socialist, calling for mass nationalizations and the abolition of interest rates, but carry reactionary undertones. It is believed that his lectures attracted Hitler to the party during its early days. With a Nazi in government, our government can prepare itself internal sabotage.
 
 @expose
 view-if: reichsbank_president = "Schacht" and investigate_far_right >= 1
