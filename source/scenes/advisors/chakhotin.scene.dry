@@ -1,0 +1,50 @@
+
+title: Sergei Chakhotin
+is-pinned-card: true 
+tags: advisor, neorevisionist
+card-image: img/portraits/chakhotin.jfif
+new-page: true
+view-if: chakhotin_advisor = 1
+
+= Sergei Chakhotin
+
+Sergei Chakhotin is a Russian biologist and politician who recently immigrated to Germany. He has dabbled in economics and supports the *Americanization* of the Soviet economy with the help of the intelligentsia. Like Mierendorff, he supports a more active stance against Nazism.
+
+- @chakhotin_international
+- @build_reichsbanner
+- @grafitti_war
+- @iron_front
+- @root: Return to main
+
+@chakhotin_international
+title: International Party Relations
+subtitle: Chakhotin can contact socialist parties outside Germany.
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+choose-if: advisor_action_timer == 0
+on-arrival: advisor_action_timer = 6; international_relations_timer -= 12;
+go-to: international_relations
+
+@build_reichsbanner
+title: Reichsbanner
+subtitle: Chakhotin supports providing more resources to the Reichsbanner.
+choose-if: advisor_action_timer = 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 6; reichsbanner_timer -= 6;
+go-to: reichsbanner
+
+@graffiti_war
+title: Graffiti War
+subtitle: Attack the Nazis at the grassroots by defacing their posters.
+choose-if: advisor_action_timer = 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 6; nsdap_workers -= 4*(1-dissent); nsdap_unemployed -= 4*(1-dissent); spd_workers += 3*(1-dissent)
+
+Chakhotin used to wage an informal "graffiti war" against the Nazis by vandalizing their propaganda posters. After climbing the SPD's political ladder, he proposes a wider campaign to make a mockery out of the far-right.
+
+@iron_front
+title: The Iron Front
+subtitle: Rally the Iron Front!
+choose-if: advisor_action_timer = 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 6; iron_front_timer -= 7;
+go-to: iron_front
