@@ -16,6 +16,8 @@ iron_front_rally.jpg: Berlin, Aufmarsch Der “Eisernen Front.” 3 Mar. 1932. G
 
 blutmai_2.jpg: Berlin, Blutmai, Straßenbarrikade. 5 May 1929. German Federal Archives, Wikimedia Commons, https://commons.wikimedia.org/wiki/File:Bundesarchiv_B_145_Bild-P046278,_Berlin,_Blutmai,_Stra%C3%9Fenbarrikade.jpg. CC-BY-SA 3.0 https://creativecommons.org/licenses/by-sa/3.0/de/deed.en
 
+chakhotin.jfif: Sergei Chakhotin, DebateGraph, Knowledge Foundation, https://debategraph.org/Details.aspx?nid=284216
+
 reichsbanner.jpg: Berlin, Kundgebung Des Reichsbanners Im Lustgarten. 3 Mar. 1928. German Federal Archives, Wikimedia Commons, https://commons.wikimedia.org/wiki/File:Bundesarchiv_Bild_102-05611,_Berlin,_Kundgebung_des_Reichsbanners_im_Lustgarten.jpg. CC-BY-SA 3.0 https://creativecommons.org/licenses/by-sa/3.0/de/deed.en
 
 stahlhelm.jpg: Berlin, Lustgarten, Stahlhelmaufmarsch. 3 Mar. 1931. German Federal Archives, Wikimedia Commons, https://commons.wikimedia.org/wiki/File:Bundesarchiv_Bild_102-11416,_Berlin,_Lustgarten,_Stahlhelmaufmarsch.jpg. CC-BY-SA 3.0 https://creativecommons.org/licenses/by-sa/3.0/de/deed.en
