@@ -18,6 +18,7 @@ if (Q.unions_independent) {
 }
 
 // update all records
+sapd_relation = 25;
 Q.sapd_r = 0;
 Q.old_sapd_r = 0;
 for (var record of Q.election_records) {
