@@ -222,19 +222,19 @@ Our government has enacted a public works program!
 
 @inflation_high
 title: Inflation is dangerously high.
+on-arrival: inflation_bread_price == inflation
 view-if: inflation >= 8
-on-arrival: inflation_bread_price = Q.inflation
 go-to: eg_menu
 
-Our reckless economic spending has caused inflation to rise massively. Many fear we have committed the same mistakes we did in 1923. The price of a loaf of bread rose by [+ inflation_bread_price +]%.
+Our reckless economic spending has caused inflation to rise massively. Many fear we have committed the same mistakes we did in 1923. The price of a loaf of bread rose by [+ inflation_bread_price +].
 
 @deflation_high
 title: Deflation has shaken trust in the economy.
 view-if: inflation <= -6
-on-arrival: deflation_bread_price = -Q.inflation
+on-arrival: deflation_bread_price = -inflation
 go-to: eg_menu
 
-Our excessively cautious economic policy has sent the German economy into a deflationary spiral. The price of a loaf of bread fell by [+ deflation_bread_price +]%.
+Our excessively cautious economic policy has sent the German economy into a deflationary spiral. The price of a loaf of bread fell by [+ deflation_bread_price +].
 
 @unemployment_reduced
 title: Unemployment has been successfully reduced!
