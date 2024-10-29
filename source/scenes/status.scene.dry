@@ -31,6 +31,8 @@ President: [+ president +]
 
 Chancellor: [+ chancellor +] ([+ chancellor_party +])
 
+Reichsbank President: [+ reichsbank_president +]
+
 Reichstag composition:
 
 # 1928: 30, 1930: 25, 1932: 22
@@ -74,6 +76,8 @@ DDP: [+ ddp_relation : relationships +]
 DVP: [+ dvp_relation : relationships +]
 
 KPD: [+ kpd_relation : relationships +]
+
+[? if sapd_formed > 0 : SAPD: [+ sapd_relation : relationships +] ?]
 
 DNVP: [+ dnvp_relation : relationships +]
 
