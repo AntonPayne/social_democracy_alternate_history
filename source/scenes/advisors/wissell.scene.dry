@@ -11,6 +11,7 @@ Wissell is a labor economist working for the ADGB, the federation of free trade 
 
 - @labor_rights_
 - @union_unity
+- @bank
 - @root: Return to main
 
 @labor_rights_
@@ -31,3 +32,8 @@ on-arrival: advisor_action_timer = 6; labor_dissent -= 5; labor_strength += 5
 
 We have reduced tensions with the Labor faction.
 
+@bank
+title: Reichsbank Affairs
+choose-if: advisor_action_timer <= 0 and reichsbank_president == "Wissell"
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if reichsbank_president != "Wissell" : Wissell does not control the Reichsbank. ?]
+go-to: reichsbank_affairs
