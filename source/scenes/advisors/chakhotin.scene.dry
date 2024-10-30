@@ -41,7 +41,7 @@ on-arrival: advisor_action_timer = 6; nsdap_workers -= 4*(1-dissent); nsdap_unem
 
 Chakhotin used to wage an informal "graffiti war" against the Nazis by vandalizing their propaganda posters. After climbing the SPD's political ladder, he proposes a wider campaign to make a mockery out of the far-right.
 
-@iron_front
+@rally_iron_front
 title: The Iron Front
 subtitle: Rally the Iron Front!
 choose-if: advisor_action_timer = 0
