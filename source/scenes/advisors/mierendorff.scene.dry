@@ -30,7 +30,15 @@ title: Forming the Iron Front
 choose-if: advisor_action_timer == 0 and iron_front_formed == 0 and nazi_urgency >= 2
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if iron_front_formed : The Iron Front has already been formed. ?][? if nazi_urgency < 2 : The party does not yet see the danger of the Nazis. ?]
 on-arrival: advisor_action_timer = 6; rb_strength += 50; nazi_urgency += 1
-go-to: confronting_nazis.iron_front 
+go-to: confronting_nazis.iron_front
+
+@rally_iron_front
+title: The Iron Front
+subtitle: Rally the Iron Front!
+choose-if: advisor_action_timer = 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 6; iron_front_timer -= 7;
+go-to: iron_front
 
 
 @nazi_urgency
