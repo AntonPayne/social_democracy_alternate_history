@@ -1,4 +1,4 @@
-title: Political Rally
+title: Popular Dissent
 new-page: true
 is-card: true
 tags: party_affairs
@@ -21,6 +21,9 @@ Our event organizers and senior party members have rallied our supporters for a 
 # - @pacifism: The time for war is over!
 # - @class_war: Crush the bourgeoisie!
 
+@women
+on-arrival: womens_rights += 1; workers_spd += 4*(1-dissent)
+
 @violent
 face-image: img/blutmai.jpg
 
@@ -32,17 +35,17 @@ Our battle-worthy units within the Reichsbanner can pick up fights with our enem
 
 @far_left
 view-if: not in_popular_front and not in_left_front
-choose-if: rfb_truce < 1
-unavailable-subtitle: Our truce with the RFB forbids such aggression.
-on-arrival: kpd_relation -= 15
+choose-if: rfb_truce < 1 and kpd_relation <= 55
+unavailable-subtitle: [? if rfb_truce >= 1 : Our truce with the RFB forbids such aggression. ?] [?
+on-arrival: kpd_relation -= 20
 go-to: left_w if rfb_strength * rfb_militancy * workers_kpd > rb_strength * rb_militancy * workers_spd ; left_l if rfb_strength * rfb_militancy * workers_kpd <= rb_strength * rb_militancy * workers_spd
 
 @left_w
-on-arrival: workers_kpd += 1; workers_spd -= 3; rfb_militancy += 0.5; rb_militancy += 0.1
+on-arrival: workers_kpd += 1; workers_spd -= 3; rfb_militancy += 0.05; rb_militancy += 0.01
 
 The RFB manages to overpower our forces! The communists celebrate their victory against the 'social fascists' while our Reichsbanner units realize how ill-prepared they are for actual combat.
 
 @left_l
-on-arrival: workers_spd += 3; workers_kpd -= 3; rb_militancy += 0.5; rfb_militancy += 0.1
+on-arrival: workers_spd += 3; workers_kpd -= 3; rb_militancy += 0.05; rfb_militancy += 0.01
 
 Our forces defeat the communists! A furious Ernst Thälmann is investigating the reasons for the RFB's defeat against the 'social fascists' while our Reichsbanner celebrates its hard-fought victory.
