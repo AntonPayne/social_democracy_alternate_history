@@ -4,7 +4,7 @@ is-card: true
 tags: party_affairs
 view-if: protest_timer <= 0 and spd_in_government != 1
 on-arrival: month_actions += 1; protest_timer = 4
-card-image: img/redfront.jpg
+card-image: img/barricades.jpg
 
 The SPD enjoys considerable support within the urban working class as well as the intelligentsia. We can use this popularity to organize a peaceful demonstration to further our political agenda. Alternatively, we can test our forces in battle against the far-right and communists, although such actions are highly illegal.
 
@@ -16,13 +16,17 @@ face-image: img/protest.jpg
 
 Our event organizers and senior party members have rallied our supporters for a demonstration outside the *Tiergarten*. What is the slogan for this protest?
 
-# - @women: German women, organize!
+- @women: German women, organize!
 # - @democracy: Democracy dies in darkness!
 # - @pacifism: The time for war is over!
 # - @class_war: Crush the bourgeoisie!
 
 @women
-on-arrival: womens_rights += 1; workers_spd += 4*(1-dissent)
+on-arrival: womens_rights += 1; workers_spd += 4*(1-dissent); new_middle_spd += 3*(1-dissent)
+
+Our advocacy for women's rights is especially popular amongst younger women, who enthusiastically attend our demonstration.
+
+[? if spd_r < 50 : Unfortunately, women still disproportionately support the bourgeois parties. ?]
 
 @violent
 face-image: img/blutmai.jpg
