@@ -1,0 +1,38 @@
+title: Sergei Chakhotin
+is-pinned-card: true
+tags: advisor
+card-image: img/chakhotin.jfif
+view-if: chakhotin_advisor = 1
+new-page: true
+
+= Sergei Chakhotin
+
+Sergei Chakhotin is a Russian biologist and politician who recently immigrated to Germany. He has dabbled in economics and believes in the *Americanization* of the Soviet economy with the help of the intelligentsia. Like Mierendorff, he supports a more active stance against Nazism.
+
+- @chakhotin_international
+- @rally_iron_front
+- @graffiti_war
+
+@chakhotin_international
+title: International Party Relations
+subtitle: Chakhotin is one of our contacts with international socialist parties.
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+choose-if: advisor_action_timer == 0
+on-arrival: advisor_action_timer = 6; international_relations_timer -= 12; last_advisor_action = 1
+go-to: international_relations
+
+@rally_iron_front
+title: Rally the Iron Front
+choose-if: advisor_action_timer == 0 and iron_front_formed == 1
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if iron_front_formed == 0 : The Iron Front does not exist yet. ?][? if nazi_urgency < 2 : The party does not yet see the danger of the Nazis. ?]
+on-arrival: advisor_action_timer = 6; iron_front_timer -= 7; last_advisor_action = 1
+go-to: iron_front
+
+@graffiti_war
+title: Graffiti War
+subtitle: 
+choose-if: advisor_action_timer == 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: workers_nsdap -= 4*(1-dissent); unemployed_nsdap -= 3*(1-dissent); rb_strength += 20*(1-dissent); democratization += 1; pro_republic += 3*(1-dissent)
+
+Chakhotin had spent his early days in the Reichsbanner waging a "graffiti war" with the Nazis in the city of Heidelberg. Now, he proposes that we perform such actions on a nation-wide scale.
