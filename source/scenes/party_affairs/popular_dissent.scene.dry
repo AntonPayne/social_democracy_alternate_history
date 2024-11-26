@@ -4,7 +4,7 @@ is-card: true
 tags: party_affairs
 view-if: protest_timer <= 0 and spd_in_government != 1
 on-arrival: month_actions += 1; protest_timer = 4
-card-image: img/barricades.jpg
+card-image: out/html/img/barricades.jpg
 
 The SPD enjoys considerable support within the urban working class as well as the intelligentsia. We can use this popularity to organize a peaceful demonstration to further our political agenda. Alternatively, we can test our forces in battle against the far-right and communists, although such actions are highly illegal.
 
@@ -12,7 +12,7 @@ The SPD enjoys considerable support within the urban working class as well as th
 - @violent: Wreak havoc throughout the streets!
 
 @peaceful
-face-image: img/protest.jpg
+face-image: out/html/img/protest.jpg
 
 Our event organizers and senior party members have rallied our supporters for a demonstration outside the *Tiergarten*. What is the slogan for this protest?
 
@@ -29,7 +29,7 @@ Our advocacy for women's rights is especially popular amongst younger women, who
 [? if spd_r < 50 : Unfortunately, women still disproportionately support the bourgeois parties. ?]
 
 @violent
-face-image: img/blutmai.jpg
+face-image: out/html/img/blutmai.jpg
 
 Our battle-worthy units within the Reichsbanner can pick up fights with our enemies. Who are we fighting against this time?
 
@@ -42,7 +42,7 @@ view-if: not in_popular_front and not in_left_front
 choose-if: rfb_truce < 1 and kpd_relation <= 55
 unavailable-subtitle: [? if rfb_truce >= 1 : Our truce with the RFB forbids such aggression. ?] [?
 on-arrival: kpd_relation -= 20
-go-to: left_w if rfb_strength * rfb_militancy * workers_kpd > rb_strength * rb_militancy * workers_spd ; left_l if rfb_strength * rfb_militancy * workers_kpd <= rb_strength * rb_militancy * workers_spd
+go-to: left_w if rfb_strength * rfb_militancy + workers_kpd > rb_strength * rb_militancy + workers_spd ; left_l if rfb_strength * rfb_militancy + workers_kpd <= rb_strength * rb_militancy + workers_spd
 
 @left_w
 on-arrival: workers_kpd += 1; workers_spd -= 3; rfb_militancy += 0.05; rb_militancy += 0.01
