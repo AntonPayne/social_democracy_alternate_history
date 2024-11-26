@@ -13,6 +13,7 @@ The SPD enjoys considerable support within the urban working class as well as th
 
 @peaceful
 face-image: out/html/img/protest.jpg
+on-arrival: protest_timer += 4
 
 Our event organizers and senior party members have rallied our supporters for a demonstration outside the *Tiergarten*. What is the slogan for this protest?
 
@@ -30,6 +31,7 @@ Our advocacy for women's rights is especially popular amongst younger women, who
 
 @violent
 face-image: out/html/img/blutmai.jpg
+on-arrival: protest_timer += 4
 
 Our battle-worthy units within the Reichsbanner can pick up fights with our enemies. Who are we fighting against this time?
 
