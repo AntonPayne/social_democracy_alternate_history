@@ -776,6 +776,7 @@ Yes, an emergency minority government, with the support of the SPD. Who should l
 
 - @braun_emergency_chancellor: Otto Braun for Chancellor-President!
 - @breitscheid_emergency_chancellor: Rudolf Breitscheid for emergency Chancellor.
+- @severing_emergency_chancellor: Carl Severing for emergency Chancellor.
 - @bruning_emergency_chancellor: Brüning of the Center Party, as a goodwill gesture toward the bourgeoisie.
 - @wirth_emergency_chancellor: Joseph Wirth of the Center Party, as a gesture of republican unity.
 
@@ -800,6 +801,17 @@ We have appointed Rudolf Breitscheid as emergency chancellor. The Communists con
 - @far_right_coup
 - @emergency_no_confidence
 
+@severing_emergency_chancellor
+subtitle: Severing's connections with the police could intimidate his opponents.
+view-if: chancellor_severing >= 3
+choose-if: chancellor_severing >= 5
+unavailable-subtitle: This feels like too big of a leap.
+on-arrival: chancellor = "Severing"; chancellor_party = "SPD"; spd_in_government = 1; kpd_relation += 3; z_relation += 8; ddp_relation += 5; dvp_relation += 5; foreign_minister_party = "SPD"; interior_minister_party = "SPD"; justice_minister_party = "SPD"; labor_minister_party = "SPD"; reichswehr_minister_party = "SPD"; economic_minister_party = "SPD"; finance_minister_party = "SPD"; agriculture_minister_party = "SPD";
+
+Carl Severing manages to win the approval of our party and has been appointed as emergency chancellor. He could intimidate the opposition with his ties to the security forces, allowing us to survive a vote of no confidence, if we ever face one.
+
+- @far_right_coup
+- @emergency_no_confidence
 
 @bruning_emergency_chancellor
 on-arrival: chancellor = "Brüning"; chancellor_party = "Z"; spd_in_government = 1; z_relation += 10; foreign_minister_party = "SPD"; interior_minister_party = "SPD"; justice_minister_party = "SPD"; labor_minister_party = "SPD"; reichswehr_minister_party = "SPD"; economic_minister_party = "SPD"; finance_minister_party = "SPD"; agriculture_minister_party = "SPD" 
@@ -910,6 +922,7 @@ Who should be the chancellor?
 
 - @muller
 - @braun
+- @severing
 - @breitscheid_coalition_chancellor
 - @wels
 - @z_chancellor
@@ -1095,6 +1108,7 @@ Who should be the chancellor?
 
 - @muller
 - @braun
+- @severing
 - @wels
 - @z_chancellor
 - @z_chancellor_wirth
@@ -1108,7 +1122,7 @@ subtitle: Muller is popular within the party, and is the preferred candidate of 
 on-arrival: spd_in_government = 1; chancellor = "Müller"; chancellor_party = "SPD"; in_grand_coalition = 1 if in_weimar_coalition == 0
 go-to: ministries
 
-Müller's appointment as chancellor is approved by all our potential allies.
+Müller's appointment as chancellor is approved by all our potential allies. 
 
 @wels
 title: Otto Wels for Chancellor
@@ -1119,6 +1133,14 @@ go-to: ministries
 
 Otto Wels's appointment as chancellor is approved by our potential allies.
 
+@severing
+title: Carl Severing for Chancellor
+view-if: chancellor_severing >= 5
+subtitle: Severing's connections with the police could intimidate his opponents.
+on-arrival: on-arrival: spd_in_government = 1; chancellor = "Severing"; chancellor_party = "SPD"; in_grand_coalition = 1 if in_weimar_coalition == 0
+
+Carl Severing's appoint as chancellor is approved by our potential allies.
+
 @braun
 title: Otto Braun for Chancellor
 view-if: not historical_mode or not spd_prussia
@@ -1128,7 +1150,18 @@ The Center party has significant qualms about appointing Braun as chancellor, gi
 
 - @muller
 - @wels
+- @severing_compromise: Carl Severing is a good compromise candidate.
 - @braun_2: Let the Center have their cabinet positions.
+
+@severing_compromise
+view-if: chancellor_severing >= 3
+choose-if: chancellor_severing >= 5
+subtitle: Severing's connections with the police could intimidate his opponents.
+unavailable-subtitle: This feels like too big of a leap.
+on-arrival: spd_in_government = 1; chancellor = "Severing"; chancellor_party = "SPD"; in_grand_coalition = 1 if in_weimar_coalition == 0
+go-to: ministries
+
+After a series of intense negotiations, our potential allies accept Carl Severing as chancellor instead of Otto Braun.
 
 @braun_2
 subtitle: Otto Braun will be Chancellor.
