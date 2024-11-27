@@ -66,7 +66,7 @@ on-arrival: workers_spd += 3; workers_kpd -= 3; rb_militancy += 0.05; rfb_milita
 Our forces defeat the communists! A furious Ernst Thälmann is investigating the reasons for the RFB's defeat against the 'social fascists' while our Reichsbanner celebrates its hard-fought victory.
 
 @far_right
-on-arrival: far_right_power == sh_strength * sh_militancy + sa_strength * sa_militancy; state_power == 0 if prussian_police_loyalty > 75; state_power == prussian_police_strength * prussian_police_militancy * prussian_police_loyalty if prussian_police_loyalty <= 75 or spd_prussia != 1
+on-arrival: far_right_power = sh_strength * sh_militancy + sa_strength * sa_militancy; state_power = 0 if prussian_police_loyalty > 75; state_power = prussian_police_strength * prussian_police_militancy * prussian_police_loyalty if prussian_police_loyalty <= 75 or spd_prussia != 1
 subtitle: [? if prussian_police_loyalty <= 75 or spd_prussia != 1 : The Prussian police might get involved. ?]
 go-to: right_w if far_right_power + state_power > rb_strength * rb_militancy; right_l if far_right_power + state_power <= rb_strength * rb_militancy
 
