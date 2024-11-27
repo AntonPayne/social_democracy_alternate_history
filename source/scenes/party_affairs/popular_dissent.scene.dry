@@ -45,15 +45,15 @@ on-arrival: protest_timer += 4
 Our battle-worthy units within the Reichsbanner can pick up fights with our enemies. Who are we fighting against this time?
 
 - @far_left: The communist RFB.
-# - @far_right: The fascist Stahlhelm and Nazi SA.
+- @far_right: The fascist Stahlhelm and Nazi SA.
 # - @bougies: The bourgeoise activists, who abandoned us in the fight against fascism.
 
 @far_left
 view-if: not in_popular_front and not in_left_front
 choose-if: rfb_truce < 1 and kpd_relation <= 55
-unavailable-subtitle: [? if rfb_truce >= 1 : Our truce with the RFB forbids such aggression. ?] [?
+unavailable-subtitle: [? if kpd_relation > 55 : We cannot possibly engage in armed conflict with our allies. ?] [? if rfb_truce >= 1 : Our truce with the RFB forbids such aggression. ?] 
 on-arrival: kpd_relation -= 20
-go-to: left_w if rfb_strength * rfb_militancy + workers_kpd > rb_strength * rb_militancy + workers_spd ; left_l if rfb_strength * rfb_militancy + workers_kpd <= rb_strength * rb_militancy + workers_spd
+go-to: left_w if rfb_strength * rfb_militancy > rb_strength * rb_militancy left_l if rfb_strength * rfb_militancy <= rb_strength * rb_militancy
 
 @left_w
 on-arrival: workers_kpd += 1; workers_spd -= 3; rfb_militancy += 0.05; rb_militancy += 0.01
@@ -66,5 +66,18 @@ on-arrival: workers_spd += 3; workers_kpd -= 3; rb_militancy += 0.05; rfb_milita
 Our forces defeat the communists! A furious Ernst Thälmann is investigating the reasons for the RFB's defeat against the 'social fascists' while our Reichsbanner celebrates its hard-fought victory.
 
 @far_right
+on-arrival: far_right_power == sh_strength * sh_militancy + sa_strength * sa_militancy; state_power == 0 if prussian_police_loyalty > 75; state_power == prussian_police_strength * prussian_police_militancy * prussian_police_loyalty if prussian_police_loyalty <= 75 or spd_prussia != 1
+subtitle: [? if prussian_police_loyalty <= 75 or spd_prussia != 1 : The Prussian police might get involved. ?]
+go-to: right_w if far_right_power + state_power > rb_strength * rb_militancy; right_l if far_right_power + state_power <= rb_strength * rb_militancy
+
+@right_w
+on-arrival: sh_strength += 20; sa_strength += 25; sh_militancy += 0.05; sa_militancy += 0.05; rb_strength -= 30; rb_militancy += 0.01
+
+The combined forces of the Stahlhelm and Nazi SA defeated the Reichsbanner! Many in the Reichsbanner are discourage by these results, and thus quit. However, the remainder are toughened as a result. Our confrontations also provide ample recruiting material for the far-right paramilitaries. 
+
+@right_l
+on-arrival: sh_strength += 10; sa_strength += 15; sh_militancy += 0.01; sa_militancy += 0.01; rb_militancy += 0.05
+
+Our forces defeat the reactionaries! The reactionaries recruit off their dead martyrs while our Reichsbanner celebrates its hard-fought victory.
 
 @bougies
