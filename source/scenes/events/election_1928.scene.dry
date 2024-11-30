@@ -1137,9 +1137,9 @@ Otto Wels's appointment as chancellor is approved by our potential allies.
 title: Carl Severing for Chancellor
 view-if: chancellor_severing >= 5
 subtitle: Severing's connections with the police could intimidate his opponents.
-on-arrival: on-arrival: spd_in_government = 1; chancellor = "Severing"; chancellor_party = "SPD"; in_grand_coalition = 1 if in_weimar_coalition == 0
+on-arrival: spd_in_government = 1; chancellor = "Severing"; chancellor_party = "SPD"; in_grand_coalition = 1 if in_weimar_coalition == 0
 
-Carl Severing's appoint as chancellor is approved by our potential allies.
+Carl Severing's appointment as chancellor is approved by our potential allies.
 
 @braun
 title: Otto Braun for Chancellor
