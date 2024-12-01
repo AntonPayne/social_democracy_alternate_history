@@ -16,6 +16,7 @@ We can either vote to bring down the government and hold new elections, or "tole
 
 - @vonc_yes
 - @vonc_no
+- @vonc_kpd
 - @no_matter
 
 @vonc_yes
@@ -35,6 +36,23 @@ view-if: neo_weimar_coalition >= 50
 on-arrival: spd_toleration = 1; in_right_coalition = 0; left_dissent += 8; 
 
 By supporting the government, we have essentially entered into a "toleration" arrangement with the [+ chancellor +] government. We do not have a voice in the government, but we are responsible for its continued stability. The left of our party opposes this plan, and would rather that we hold new elections.
+
+@vonc_kpd
+title: Convince the KPD to abstain.
+choose-if: communist_coalition >= 3 and kpd_relation >= 50 and kpd_r >= dvp_r
+unavailable-subtitle: [? if communist_coalition < 3 : The KPD is dedicated to preventing the Young Plan. ?] [? if kpd_relation < 50 : The KPD is not friendly enough with us. ?] [? if kpd_r < dvp_r : The KPD does not have enough votes. ?]
+
+If both the SPD and KPD abstain, we can trap the bourgeois parties in a minority government and force them to listen to our demands. We can press further, negotiating a deal with the Center Party to drop its liberal allies in exchange for a stable coalition with the left.
+
+- @election_1928.popular_front_coalition: Form a "Popular Front" coalition?
+- @nevermind_yes: Nevermind, we will vote against the government.
+- @nevermind_no: Nevermind, we will vote for the government.
+
+@nevermind_yes
+go-to: vonc_yes
+
+@nevermind_no
+go-to: vonc_no
 
 @no_matter
 title: It does not matter what we do.
