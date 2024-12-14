@@ -6,7 +6,7 @@ view-if: protest_timer <= 0 and spd_in_government != 1
 on-arrival: month_actions += 1; protest_timer += 4
 card-image: img/barricades.jpg
 
-The SPD enjoys considerable support within the urban working class as well as the intelligentsia. We can use this popularity to organize a peaceful demonstration to further our political agenda. Alternatively, we can test our forces in battle against the far-right and communists, although such actions are highly illegal.
+The SPD enjoys considerable support within the urban working class and intelligentsia. We can use this popularity to organize a peaceful demonstration to further our political agenda. Alternatively, we can test our forces in battle against our political rivals, although such actions are highly illegal.
 
 - @peaceful: Organize a peaceful demonstration.
 - @violent: Wreak havoc throughout the streets!
