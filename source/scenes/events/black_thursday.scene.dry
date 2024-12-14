@@ -11,9 +11,9 @@ face-image: img/bankrun.jpg
 
 The stock market in America has had its biggest crash in history. It is too early to tell what the international effects will be, but it cannot be good. Our economy is already feeling the effects - unemployment will rise even more, and wages will fall. As always, it is the capitalists' crisis, and the workers' burden.
 
-
 - @cap: It is the nature of capitalism...
 - @do_something: We must do something to stop the suffering...
+- @blame_game: This is the fault of the previous government!
 
 @cap
 
@@ -23,3 +23,9 @@ Perhaps this is simply one of the periodic crises of capitalism. Perhaps this mo
 on-arrival: crisis_urgency += 1
 
 What can we do to staunch the workers' suffering? It is becoming a hotly debated question.
+
+@blame_game
+view-if: right_coalition_tried = 1
+on-arrival: radicalism += 1; workers_dnvp -= 3; workers_spd += 2; new_middle_nsdap -= 2; unemployed_spd += 2; unemployed_dnvp -= 3
+
+Blaming the right-wing coalition for the economic crisis helps divert some of the workers' anger towards the DNVP. However, we need real action in these times of crises, not accusations.
