@@ -28,4 +28,4 @@ What can we do to staunch the workers' suffering? It is becoming a hotly debated
 view-if: right_coalition_tried = 1
 on-arrival: radicalism += 1; workers_dnvp -= 3; workers_spd += 2; new_middle_nsdap -= 2; unemployed_spd += 2; unemployed_dnvp -= 3
 
-Blaming the right-wing coalition for the economic crisis helps divert some of the workers' anger towards the DNVP. However, we need real action in these times of crises, not accusations.
+Blaming the right-wing coalition for the economic crisis helps divert some of the workers' anger towards the DNVP. However, we need real action in these times of crisis, not political mudsliding.
