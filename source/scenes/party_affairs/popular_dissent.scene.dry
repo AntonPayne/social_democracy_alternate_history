@@ -13,7 +13,7 @@ The SPD enjoys considerable support within the urban working class and intellige
 - @easy_discard
 
 @peaceful
-face-image: img/protest.jpg
+face-image: out/html/img/protest.jpg
 on-arrival: protest_timer += 4
 
 Our event organizers and senior party members have rallied our supporters for a demonstration outside the *Tiergarten*. What is the slogan for this protest?
@@ -39,7 +39,7 @@ Our party members defend the republican system and condemn the authoritarians wh
 [? if democratization >= 3 : Our demonstration is attended by a large crowd!  Since we have consistently made democratization a theme of our campaign, the workers are enthusiastic about our message. ?]
 
 @violent
-face-image: img/blutmai.jpg
+face-image: out/html/img/blutmai.jpg
 
 Our battle-worthy units within the Reichsbanner can pick up fights with our enemies. Who are we fighting against this time?
 
