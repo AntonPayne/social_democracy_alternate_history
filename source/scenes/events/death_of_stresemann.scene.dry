@@ -13,7 +13,7 @@ Gustav Stresemann, leader of the DVP, has died. Despite his monarchism, he was t
 
 The DVP membership has organized a conference to select a new party chairman. Despite internal reforms, both the party and its electorate have been shifting to the right recently. [? if in_weimar_coalition == 1 : The left wing of the party has shrunk massively after its exclusion from the current coalition. ?][? if in_weimar_coalition != 1 : The left wing of the party has been waning in influence. ?]
 
-The right wing of the party backs Ernst Scholz, famous for his ties with industrialists and opposition to bourgeois unity. Stressman's death has inflammed nationalist support within the party, making his victory very likely. On the left, there is Julius Curtius, who has been supportive of cooperation with the SPD and is seen by many as Stressman's spiritual successor.
+The right wing of the party backs Ernst Scholz, famous for his ties with industrialists and opposition to bourgeois unity. Streseman's death has inflammed nationalist support within the party, making his victory very likely. On the left, there is Julius Curtius, who has been supportive of cooperation with the SPD and is seen by many as Streseman's spiritual successor.
 
 - @scholz: Ernst Scholz is elected as the party chair.
 - @curtius: Influence the DVP to elect Julius Curtius as the party chair.
@@ -21,11 +21,11 @@ The right wing of the party backs Ernst Scholz, famous for his ties with industr
 @scholz
 on-arrival: dvp_party_leader = "Scholz"; dvp_relation -= 5
 
-Ernst Scholz has won the leadership vote and will succeed Stressman as party chairman. The left wing of the DVP is in full retreat. Unfortunately, cooperation with the DVP will be much harder in the future.
+Ernst Scholz has won the leadership vote and will succeed Streseman as party chairman. The left wing of the DVP is in full retreat. Unfortunately, cooperation with the DVP will be much harder in the future.
 
 @curtius
 choose-if: dvp_relation >= 65 or (dvp_relation >= 50 and (in_weimar_coalition == 0 or infiltrate_dvp >=1))
-unavailable_subtitle: [? if in_weimar_coalition == 1 and infiltrate_dvp < 1 : Our current coalition arrangement angers the DVP. ?] [? if dvp_relation < 50 : Our relations with the DVP are not good enough. ?] [ if dvp_relation < 65 and dvp_relation >= 50 and infiltrate_dvp < 1 : Our connections within the DVP are not good enough.]
+unavailable_subtitle: [? if in_weimar_coalition == 1 and infiltrate_dvp < 1 : Our current coalition arrangement angers the DVP membership. ?] [? if dvp_relation < 50 : Our relations with the DVP are not good enough. ?] [ if dvp_relation < 65 and dvp_relation >= 50 and infiltrate_dvp < 1 : Our connections within the DVP are not good enough.]
 on-arrival: dvp_party_leader = "Curtius", dvp_relation += 10
 
-Using our grassroots connections, we influence the DVP party delegates to support Julius Curtius as the new chairman. The left wing of the DVP is now ascendant. Curtius has been friendlier to the republicans compared to Scholz . His victory has also embolded progressives within the party.
+Using our grassroots connections, we influence the DVP party delegates to support Julius Curtius as the new chairman. The left wing of the DVP is now ascendant after Curtius' victory. Curtius has been friendlier to the republicans compared to Scholz . His victory has also embolded progressives within the party.
