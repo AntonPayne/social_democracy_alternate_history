@@ -1067,7 +1067,6 @@ go-to: join_bruning
 
 Under the influence of Gustav Stresemann, the DVP agrees to allow us into the coalition, and so does the BVP.
 
-
 @dvp_conservative
 
 The DVP asks us to adhere to their conservative economic policies (that is, extreme austerity and labor discipline) in exchange for us joining the coalition.
@@ -1079,7 +1078,7 @@ The DVP asks us to adhere to their conservative economic policies (that is, extr
 
 
 @beg_dvp_2
-go-to: beg_dvp_succeed; beg_dvp_fail
+go-to: beg_dvp_succeed if dvp_relation >= 50 or dvp_party_leader != "Scholz" ; beg_dvp_fail if dvp_relation < 50 and dvp_party_leader != "Curtius"
 
 We make the case that without the SPD, there is no parliamentary majority, given the DNVP and NSDAP's hostility to constitutional government.
 
@@ -1088,13 +1087,10 @@ go-to: join_bruning
 
 Somehow, we succeed in convincing them! We are now in a coalition.
 
-
 @beg_dvp_fail
 go-to: no_majority
 
 As expected, the DVP is too set in their anti-democratic ways.
-
-
 
 @grand_coalition_spd_lead
 on-arrival: leverage -= 15 if dvp_relation < 20
@@ -1138,7 +1134,7 @@ view-if: chancellor_severing >= 5
 subtitle: Severing's connections with the police could intimidate his opponents.
 on-arrival: spd_in_government = 1; chancellor = "Severing"; chancellor_party = "SPD"; in_grand_coalition = 1 if in_weimar_coalition == 0
 
-Carl Severing's appointment as chancellor is approved by our potential allies.
+Severing's appointment as chancellor is approved by our potential allies.
 
 @braun
 title: Otto Braun for Chancellor
@@ -1153,10 +1149,8 @@ The Center party has significant qualms about appointing Braun as chancellor, gi
 - @braun_2: Let the Center have their cabinet positions.
 
 @severing_compromise
-view-if: chancellor_severing >= 3
-choose-if: chancellor_severing >= 5
+view-if: chancellor_severing >= 5
 subtitle: Severing's connections with the police could intimidate his opponents.
-unavailable-subtitle: This feels like too big of a leap.
 on-arrival: spd_in_government = 1; chancellor = "Severing"; chancellor_party = "SPD"; in_grand_coalition = 1 if in_weimar_coalition == 0
 go-to: ministries
 
@@ -1169,7 +1163,6 @@ on-arrival: spd_in_government = 1; chancellor = "Braun"; chancellor_party = "SPD
 go-to: ministries
 
 We have promised to let the Center have more influence in the government in response to the appointment of Braun as chancellor.
-
 
 @z_chancellor
 title: Let the Center Party have their chancellor.
