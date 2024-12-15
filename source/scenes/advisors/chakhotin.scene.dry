@@ -30,9 +30,9 @@ go-to: iron_front
 
 @graffiti_war
 title: Graffiti War
-subtitle: 
+subtitle: Deface Nazi posters and attack their popularity
 choose-if: advisor_action_timer == 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
-on-arrival: workers_nsdap -= 4*(1-dissent); unemployed_nsdap -= 3*(1-dissent); rb_strength += 20*(1-dissent); democratization += 1; pro_republic += 3*(1-dissent)
+on-arrival: workers_nsdap -= 4; unemployed_nsdap -= 3; pro_republic += 3; adivsor_action_timer = 6; last_advisor_action = 1
 
 Chakhotin had spent his early days in the Reichsbanner waging a "graffiti war" with the Nazis in the city of Heidelberg. Now, he proposes that we perform such actions on a nation-wide scale.
