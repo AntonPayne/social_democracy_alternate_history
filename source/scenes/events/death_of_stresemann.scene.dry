@@ -26,6 +26,6 @@ Ernst Scholz has won the leadership vote and will succeed Streseman as party cha
 @curtius
 choose-if: dvp_relation >= 65 or (dvp_relation >= 50 and (in_weimar_coalition == 0 or infiltrate_dvp >=1))
 unavailable_subtitle: [? if in_weimar_coalition == 1 and infiltrate_dvp < 1 : Our current coalition arrangement angers the DVP membership. ?] [? if dvp_relation < 50 : Our relations with the DVP are not good enough. ?] [ if dvp_relation < 65 and dvp_relation >= 50 and infiltrate_dvp < 1 : Our connections within the DVP are not good enough.]
-on-arrival: dvp_party_leader = "Curtius", dvp_relation += 10
+on-arrival: dvp_party_leader = "Curtius"; dvp_relation += 10
 
 Using our grassroots connections, we influence the DVP party delegates to support Julius Curtius as the new chairman. The left wing of the DVP is now ascendant after Curtius' victory. Curtius has been friendlier to the republicans compared to Scholz . His victory has also embolded progressives within the party.
