@@ -15,19 +15,7 @@ max-cards: 3
 #Here, the main deck will be displayed. Clicking on the deck draws a card into your hand. Clicking on a card activates that card.
 
 [? if year = 1928 and month = 2 : The current bourgeois-right government has fallen. The next elections are slated for May of this year. ?]
-
-- @party
-- @govt
-- #advisor
-- @shuffle_leadership_pinned
-
 [? if year = 1930 and month = 8 : The last Franco-Belgian troops have withdrawn from the Rhineland in accordance with the Young Plan. While this is a positive step towards undoing the excesses of the Treaty of Versailles, it also allows the reactionary elements within German society to replace our current government with an authoritarian one without foreign intervention. ?]
-
-- @party
-- @govt
-- #advisor
-- @shuffle_leadership_pinned
-
 [? if year = 1933 and month = 1 and president != "Hindenburg" : President Hindenburg has been unseated and the far-right have still not formed a government. Now, the task of Social Democracy is to keep German democracy stable for the years to come. ?]
 [? if year = 1933 and month = 1 and president != "Braun" : President Hindenburg is still in office and has shielded the far-right from facing true justice. Now, the task of Social Democracy is to stop his right-wing camarilla. ?]
 
@@ -53,19 +41,7 @@ max-cards: 4
 #Here, the main deck will be displayed. Clicking on the deck draws a card into your hand. Clicking on a card activates that card.
 
 [? if year = 1928 and month = 2 : The current bourgeois-right government has fallen. The next elections are slated for May of this year. ?]
-
-- @party
-- @govt
-- #advisor
-- @shuffle_leadership_pinned
-
 [? if year = 1930 and month = 8 : The last Franco-Belgian troops have withdrawn from the Rhineland in accordance with the Young Plan. While this is a positive step towards undoing the excesses of the Treaty of Versailles, it also allows the reactionary elements within German society to replace our current government with an authoritarian one without foreign intervention. ?]
-
-- @party
-- @govt
-- #advisor
-- @shuffle_leadership_pinned
-
 [? if year = 1933 and month = 1 and president != "Hindenburg" : President Hindenburg has been unseated and the far-right have still not formed a government. Now, the task of Social Democracy is to keep German democracy stable for the years to come. ?]
 [? if year = 1933 and month = 1 and president != "Braun" : President Hindenburg is still in office and has shielded the far-right from facing true justice. Now, the task of Social Democracy is to stop his right-wing camarilla. ?]
 
