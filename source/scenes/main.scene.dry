@@ -21,6 +21,21 @@ max-cards: 3
 - #advisor
 - @shuffle_leadership_pinned
 
+[? if year = 1930 and month = 8 : The last Franco-Belgian troops have withdrawn from the Rhineland in accordance with the Young Plan. While this is a positive step towards undoing the excesses of the Treaty of Versailles, it also allows the reactionary elements within German society to replace our current government with an authoritarian one without foreign intervention. ?]
+
+- @party
+- @govt
+- #advisor
+- @shuffle_leadership_pinned
+
+[? if year = 1933 and month = 1 and president != "Hindenburg" : President Hindenburg has been unseated and the far-right have still not formed a government. Now, the task of Social Democracy is to keep German democracy stable for the years to come. ?]
+[? if year = 1933 and month = 1 and president != "Braun" : President Hindenburg is still in office and has shielded the far-right from facing true justice. Now, the task of Social Democracy is to stop his right-wing camarilla. ?]
+
+- @party
+- @govt
+- #advisor
+- @shuffle_leadership_pinned
+
 @main_easy
 set-bg: img/map_2.jpg
 is-hand: true
@@ -43,7 +58,6 @@ max-cards: 4
 - @govt
 - #advisor
 - @shuffle_leadership_pinned
-
 
 [? if year = 1930 and month = 8 : The last Franco-Belgian troops have withdrawn from the Rhineland in accordance with the Young Plan. While this is a positive step towards undoing the excesses of the Treaty of Versailles, it also allows the reactionary elements within German society to replace our current government with an authoritarian one without foreign intervention. ?]
 
