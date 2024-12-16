@@ -154,16 +154,6 @@ The previous foreign ministry, despite its benevolent and peaceful face, was sec
 
 The Allies are grateful of our exposure and repudiation of militarism. Our partners in the coalition are less supportive.
 
-
-# @economic_conference
-title: Organize an international economic conference to deal with the Depression.
-unavailable-subtitle: [? if west_relation < 4 : Our relations with the West are not good enough. ?]
-view-if: black_friday_seen == 1 and crisis_urgency >= 1 and reparations <= -2
-choose-if: west_relation >= 4
-on-arrival: economic_conference = 1; west_relation += 1; east_relation += 1
-max-visits: 1
-
-
 @concordat_negotiate
 title: Negotiate a Concordat between the Germany and the Vatican.
 view-if: prussian_concordat = 1 and reichskonkordat = 0 and reichskonkordat_progress < 4
