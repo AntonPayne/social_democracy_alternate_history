@@ -2,7 +2,7 @@ title: Popular Dissent
 new-page: true
 is-card: true
 tags: party_affairs
-view-if: protest_timer = 0 and not spd_in_government and and not return_to_normalcy
+view-if: protest_timer = 0 and not spd_in_government and not return_to_normalcy
 on-arrival: month_actions += 1; protest_timer += 4
 card-image: img/barricades.jpg
 
