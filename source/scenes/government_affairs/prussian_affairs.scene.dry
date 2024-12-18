@@ -22,6 +22,7 @@ We can enact policies in Prussia.
 - @unban_rfb: Reverse the RFB ban.
 - @ban_sh: Ban the Stahlhelm, the Nationalist paramilitary.
 - @unban_sh: Reverse the Stahlhelm ban.
+- @budget: Divert government funding towards the Prussian government.
 - @negotiate_concordat: Negotiate a concordat with the Vatican.
 - @sign_concordat: Sign a concordat with the Vatican.
 - @root: No new policies are needed.
@@ -83,6 +84,14 @@ view-if: rfb_banned = 1
 on-arrival: rfb_banned = 0; rfb_strength += 50; prussian_police_loyalty -= 0.1
 
 The Communist RFB is no longer banned.
+
+@budget
+view-if: black_thursday_seen = 1
+choose-if: budget >= 1 and finance_minister_party = "SPD"
+unavailable-subtitle: [? if budget <= 0 : We can only do this with a budget surplus. ?] [? if finance_minister_party != "SPD" : The SPD does not control the Finance Ministry. ?]
+on-arrival: budget -= 1; coalition_dissent += 1 if in_grand_coalition; prussian_police_loyalty += 0.05; workers_spd += 4*(1-dissent); rural_spd += 4*(1-dissent); new_middle_spd += 3*(1-dissent)
+
+Using our ties within the Finance Ministry, we can divert some government fundings towards the development of Prussia. This allows us to implement more welfare policies within the state and increase our popularity in the area. Detractors within the SPD[? if in_grand_coalition : and our coalition partners, namely the regionalist DVP and BVP, ?]believe that such actions will only worsen inter-state disparities.
 
 @negotiate_concordat
 view-if: prussian_concordat_progress < 1
